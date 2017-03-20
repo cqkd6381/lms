@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::any('qiniu/auth','QiniuController@auth');
+Route::any('qiniu/upload','QiniuController@upload');

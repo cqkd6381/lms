@@ -4,11 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class File extends Model
 {
-    protected $table = 'users';
+    protected $table = 'files';
 
     public $timestamps = false;
-
-    
 }
