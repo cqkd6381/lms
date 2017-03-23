@@ -71,16 +71,6 @@
     		padding-right: 10px;
     		color:#787d82;
     		text-decoration-line: none; 
-    		line-height: 30px;
-    	}
-    	.filter span{
-    		font-size:16px;
-    		color:#787d82;
-    		text-decoration-line: none;
-    		float:right;
-    		display: inline-block;
-    		line-height: 30px;
-    		padding-left: 10px;
     	}
     </style>
 @endsection
@@ -91,9 +81,6 @@
     		<a href="">推荐</a>
     		<a href="">最新</a>
     		<a href="">最热</a>
-    		<a href=""><span class="glyphicon glyphicon-circle-arrow-right"></span></a>
-    		<a href=""><span class="glyphicon glyphicon-circle-arrow-left"></span></a>
-    		<span>1/28</span>
     	</div>
 
 		<a href="{{route('course',['id'=>1])}}">
@@ -304,182 +291,7 @@
 				</div>
 			</div>
 		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
+
     	
     	
     </div>

@@ -17,15 +17,23 @@
 //七牛云存储
 Route::any('qiniu/auth','QiniuController@auth');
 Route::any('qiniu/upload','QiniuController@upload');
-//前台
-Route::any('/','IndexController@index');
+
+/*前台*/
+//课程
+Route::get('/','IndexController@index')->name('index');
+Route::get('course/{id}','IndexController@course')->name('course');
+
+Route::get('scene','IndexController@scene')->name('scene');
+
+
+//职业路径
+Route::get('career','IndexController@career')->name('career');
+Route::get('class/{id}','IndexController@class')->name('class');
 
 
 
-//后台
+/*后台*/
 Route::group(['namespace' => 'Admin','prefix' => 'admin'], function(){
 	Route::get('index','IndexController@index');
-
-
 
 });

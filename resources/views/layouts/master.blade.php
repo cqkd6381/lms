@@ -7,6 +7,7 @@
 	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<link href="{{asset('vendor/common/css/ie10-viewport-bug-workaround.css')}}" rel="stylesheet">
 	<link href="{{asset('vendor/common/css/non-responsive.css')}}" rel="stylesheet">
+	@yield('style')
 	<script src="{{asset('vendor/common/js/ie-emulation-modes-warning.js')}}"></script>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -27,11 +28,11 @@
 		            <li class="dropdown">
 		             	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">课程 <span class="caret"></span></a>
 		              	<ul class="dropdown-menu">
-		                	<li><a href="#">线上课程</a></li>
-		                	<li><a href="#">线下课程</a></li>
+		                	<li><a href="{{route('index')}}">线上课程</a></li>
+		                	<li><a href="{{route('scene')}}">线下课程</a></li>
 		              	</ul>
 		            </li>
-		            <li><a href="#about">职业路径</a></li>
+		            <li><a href="{{route('career')}}">职业路径</a></li>
 		            <li><a href="#contact">知识库</a></li>
 	          	</ul>
 	          	<form class="navbar-form navbar-left">
@@ -44,15 +45,15 @@
 		            <li><a href="#">登陆</a></li>
 		            <li><a href="#">注册</a></li>
 		            <li class="dropdown">
-			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的 <span class="caret"></span></a>
 			          	<ul class="dropdown-menu">
-				            <li><a href="#">Action</a></li>
-				            <li><a href="#">Another action</a></li>
-				            <li><a href="#">Something else here</a></li>
+				            <li><a href="#">VIP会员</a></li>
+				            <li><a href="#">我的收藏</a></li>
+				            <li><a href="#">观看历史</a></li>
 				            <li role="separator" class="divider"></li>
-				            <li><a href="#">Separated link</a></li>
+				            <li><a href="#">个人资料</a></li>
 				            <li role="separator" class="divider"></li>
-				            <li><a href="#">One more separated link</a></li>
+				            <li><a href="#">退出</a></li>
 			          	</ul>
 			        </li>
 	          	</ul>
@@ -79,5 +80,6 @@
 	<script src="https://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="{{asset('vendor/common/js/ie10-viewport-bug-workaround.js')}}"></script>
+	 @yield('script')
 </body>
 </html>
