@@ -13,11 +13,26 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id')->comment('唯一用户标识');
-            $table->string('uname')->comment('用户名');
+            $table->increments('id')->comment('用户表');
+            $table->string('username')->comment('用户名');
             $table->string('email')->unique()->comment('邮箱');
             $table->string('password')->comment('密码');
-            $table->tinyInteger('status')->comment('1: active,0: disabled');
+            $table->char('mobilephone',11)->unique()->comment('手机号');
+            $table->char('telephone',20)->comment('座机');
+            $table->char('realname',50)->comment('真实姓名');
+            $table->bigInteger('qq')->unsigned()->comment('qq号码');
+            $table->tinyInteger('is_admin')->default(0)->comment('是否管理员1是0否');
+            $table->tinyInteger('sex')->default(0)->comment('性别1男2女');
+            $table->char('reg_ip',16)->default('')->comment('注册IP');
+            $table->char('last_login_ip',16)->default('')->comment('最后登录IP');
+            $table->bigInteger('last_login_time')->comment('最后登录时间');
+            $table->tinyInteger('type')->default(1)->comment('用户类型1学员2讲师3管理员');
+            $table->tinyInteger('active')->default(1)->comment('是否启用1启用2关闭');
+            $table->string('code')->default('')->comment('用户编号');
+            $table->string('credential_no',20)->default('')->comment('身份证号码');
+            $table->string('description')->default('')->comment('备注');
+            $table->string('imgpath')->default('')->comment('头像路径');
+            $table->bigInteger('create_time')->default(0)->comment('用户创建时间');
         });
     }
 
