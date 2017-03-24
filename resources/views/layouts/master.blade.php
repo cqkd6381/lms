@@ -69,7 +69,7 @@
       	<div class="container">
 	        <div id="navbar">
 	          	<ul class="nav navbar-nav">
-		            <li><a href="#">@2011 安徽百得思维信息科技有限公司 All Rights Reserved 版权所有 皖ICP备16015303号-1</a></li>
+		            <li><a href="#">Copyright &copy; 2011-2017 安徽百得思维信息科技有限公司 All Rights Reserved 版权所有 皖ICP备16015303号-1</a></li>
 	          	</ul>
 	        </div>
       	</div>

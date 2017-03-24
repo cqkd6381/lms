@@ -11,6 +11,6 @@ class IndexController extends Controller
 {
     public function index()
     {
-    	return view('admin.index2');
+    	return view('admin.index.index');
     }
 }

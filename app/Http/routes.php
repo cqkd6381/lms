@@ -34,6 +34,15 @@ Route::get('class/{id}','IndexController@class')->name('class');
 
 /*后台*/
 Route::group(['namespace' => 'Admin','prefix' => 'admin'], function(){
-	Route::get('index','IndexController@index');
+
+	Route::get('index','IndexController@index')->name('admin');
+
+	Route::resource('user','UserController');
+	
+	Route::resource('course','CourseController');
+	
+	// Route::resource('courseware','CourseWareController');
+
+	Route::resource('career','CareerController');
 
 });
