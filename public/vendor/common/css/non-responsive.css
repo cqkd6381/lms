@@ -17,6 +17,14 @@ body,
   min-width: 1230px;
 }
 
+a, a:hover {
+   text-decoration: none;
+}
+
+ul li {
+   list-style-type:none;
+}
+
 /* Don't let the lead text change font-size. */
 .lead {
   font-size: 16px;

@@ -6,155 +6,235 @@
 
 @section('style')
     <style type="text/css">
-    	.career-head{
-    		height: 160px;
+    	.class-head{
+    		height:160px;
     		background-color: gray;
-    		padding:10px; 
+    		margin:20px 0px;
     	}
-    	.career-head h1{
-    		height:40px;
-    		color:#fff;
-    		font-weight: 700;
-    	}
-    	.career-head .career-head-content{
-    		height: 50px;
-    		margin-top: 20px;
-    		/*background-color: #999;*/
-    	}
-    	.career-head .career-head-content .career-attr{
-    		height: 50px;
-    		/*background-color: #666;*/
-    		width:120px;
-    		float:left;
-    		margin-right: 10px;
-    		padding:5px;
+    	.class-head h1{
+    		line-height: 160px;
     		text-align: center;
-    		/*border-right: 1px solid red;*/
-    	}
-    	.career-attr a{
-    		line-height: 40px;
-    		font-size: 16px;
-    		text-decoration-line: none;
+    		font-size: 50px;
     		font-weight: 700;
-    		color:#fff;
-    		padding-right: 10px;
+    		color: #fff;
     	}
-    	.career-attr a:hover{
-    		color:#000;
+    	.class-body ul{
+    		padding: 20px;
+    		height: 200px;
+    		background-color: #fff;
     	}
-    	.career-attr span{
+    	.class-body ul li{
+    		height: 140px;
+    		/*padding: 10px;*/
+    		background-color: #eee;
     		display: block;
-    		color:#CEBFBD;
-
-    	}
-    	.career-attr i{
-    		display: block;
-    		color:#CEBFBD;
-    		font-size: 16px;
-    		font-weight: 700;
-    	}
-
-    	.career-body{
+    		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    		border-radius: 5px;
     		margin-top: 20px;
     	}
-    	.career-body-left{
-    		width:780px;
-    		background-color: #ccc;
-    		float:left;
+    	.class-list-left{
+    		height:140px;
+    		width:20%;
+    		padding: 21px 10px;
+    		/*background-color: blue;*/
+    		float: left;
     	}
-    	.career-body-right{
-    		width:400px;
-    		height:500px;
-    		background-color: #ccc;
-    		float:right;
+    	.class-list-right{
+    		height:140px;
+    		width:80%;
+    		padding: 21px 10px;
+    		/*background-color: green;*/
+    		float: right;
     	}
-    	.career-body-one,.career-body-two{
-    		padding:20px 10px;
-    		/*margin:10px;*/
-    		border-bottom: 1px solid #aaa;
-    	}
-    	.career-body-one p{
-    		line-height: 25px;
-    	}
-    	.career-list{
-    		height:40px;
-    		width:760px;
-    		background-color: #fff;
-    		/*margin-top: 10px;*/
-    		margin:10px auto;
-    	}
-    	.career-list:hover{
-    		background-color: #aaa;
+    	.class-list-right h3{
+    		height: 38px;
+    		margin:0;
 
     	}
-    	.career-list span{
-    		line-height: 40px;
+    	.class-list-right h3 a{
+    		color:#567;
     		font-size: 16px;
-    		padding: 0 20px;
-    		color:#000;
+    		font-weight: 600;
     	}
-
+    	.class-list-right h3 a:hover{
+    		color:#088;
+    	}
+    	.class-list-right h3 a:nth-child(1){
+    		font-size: 25px;
+    		color: #222;
+    	}
+    	.class-list-right p{
+    		height: 60px;
+    		margin:0;
+    		overflow: hidden;
+    	}
     </style>
 @endsection
 
 @section('content')
     <div class="container">
-    	<div class="career-head">
-    		<h1>shell编程之变量</h1>
-    		<div class="career-head-content">
-    			<div class="career-attr" style="background-color: #f00;border-radius: 5px;width:160px;">
-    				<a href="">开始学习</a>
-    				<a href="" class="glyphicon glyphicon-heart-empty"></a>
-    			</div>
-    			<div class="career-attr">
-    				<span>学习人数</span>
-    				<i>30012</i>
-    			</div>
-    			<div class="career-attr">
-    				<span>难度级别</span>
-    				<i>中级</i>
-    			</div>
-    			<div class="career-attr">
-    				<span>课程时长</span>
-    				<i>1小时51分</i>
-    			</div>
-    		</div>
+    	<div class="class-head">
+    		<h1>大数据工程师</h1>
     	</div>
-    	<div class="career-body">
-    		<div class="career-body-left">
-    			<div class="career-body-one">
-	    			<p>简介：本课程是《Linux达人养成计划I》中第九章课程的延续，主要介绍Linux shell编程基础中的变量。包括Bash变量的分类和各变量的详细使用，如：用户自定义变量、环境变量、语系变量、位置参数变量和预定义变量。简介：本课程是《Linux达人养成计划I》中第九章课程的延续，主要介绍Linux shell编程基础中的变量。包括Bash变量的分类和各变量的详细使用，如：用户自定义变量、环境变量、语系变量、位置参数变量和预定义变量。</p>
-	    		</div>
-	    		<div class="career-body-two">
-	    			<a href="">
-	    				<div class="career-list">
-	    					<span>第1课 Bash变量与变量分类(08:30)</span>
-	    					<span class="glyphicon glyphicon-play-circle"></span>
-	    				</div>
-	    			</a>
-	    			<a href="">
-	    				<div class="career-list">
-	    					<span>第1课 Bash变量与变量分类(08:30)</span>
-	    					<span class="glyphicon glyphicon-play-circle"></span>
-	    				</div>
-	    			</a>
-	    			<a href="">
-	    				<div class="career-list">
-	    					<span>第1课 Bash变量与变量分类(08:30)</span>
-	    					<span class="glyphicon glyphicon-play-circle"></span>
-	    				</div>
-	    			</a>
-
-
-
-	    		</div>
-    		</div>
-    		<div class="career-body-right">
+    	<div class="class-body">
+    		<ul>
+    			<li>
+    				<div class="class-list-left">
+    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+    				</div>
+    				<div class="class-list-right">
+    					<h3>
+    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
+    						<a>11个视频</a>
+    						<a>总时长89分钟</a>
+    					</h3>
+    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
+    				</div>
+    			</li>
+    			<li>
+    				<div class="class-list-left">
+    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+    				</div>
+    				<div class="class-list-right">
+    					<h3>
+    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
+    						<a>11个视频</a>
+    						<a>总时长89分钟</a>
+    					</h3>
+    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
+    				</div>
+    			</li>
+    			<li>
+    				<div class="class-list-left">
+    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+    				</div>
+    				<div class="class-list-right">
+    					<h3>
+    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
+    						<a>11个视频</a>
+    						<a>总时长89分钟</a>
+    					</h3>
+    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
+    				</div>
+    			</li>
+    			<li>
+    				<div class="class-list-left">
+    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+    				</div>
+    				<div class="class-list-right">
+    					<h3>
+    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
+    						<a>11个视频</a>
+    						<a>总时长89分钟</a>
+    					</h3>
+    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
+    				</div>
+    			</li>
+    			<li>
+    				<div class="class-list-left">
+    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+    				</div>
+    				<div class="class-list-right">
+    					<h3>
+    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
+    						<a>11个视频</a>
+    						<a>总时长89分钟</a>
+    					</h3>
+    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
+    				</div>
+    			</li>
+    			<li>
+    				<div class="class-list-left">
+    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+    				</div>
+    				<div class="class-list-right">
+    					<h3>
+    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
+    						<a>11个视频</a>
+    						<a>总时长89分钟</a>
+    					</h3>
+    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
+    				</div>
+    			</li>
+    			<li>
+    				<div class="class-list-left">
+    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+    				</div>
+    				<div class="class-list-right">
+    					<h3>
+    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
+    						<a>11个视频</a>
+    						<a>总时长89分钟</a>
+    					</h3>
+    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
+    				</div>
+    			</li>
+    			<li>
+    				<div class="class-list-left">
+    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+    				</div>
+    				<div class="class-list-right">
+    					<h3>
+    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
+    						<a>11个视频</a>
+    						<a>总时长89分钟</a>
+    					</h3>
+    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
+    				</div>
+    			</li>
+    			<li>
+    				<div class="class-list-left">
+    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+    				</div>
+    				<div class="class-list-right">
+    					<h3>
+    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
+    						<a>11个视频</a>
+    						<a>总时长89分钟</a>
+    					</h3>
+    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
+    				</div>
+    			</li>
+    			<li>
+    				<div class="class-list-left">
+    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+    				</div>
+    				<div class="class-list-right">
+    					<h3>
+    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
+    						<a>11个视频</a>
+    						<a>总时长89分钟</a>
+    					</h3>
+    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
+    				</div>
+    			</li>
+    			<li>
+    				<div class="class-list-left">
+    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+    				</div>
+    				<div class="class-list-right">
+    					<h3>
+    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
+    						<a>11个视频</a>
+    						<a>总时长89分钟</a>
+    					</h3>
+    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
+    				</div>
+    			</li>
     			
-    		</div>
+    		</ul>
     	</div>
-    	<div class="career-foot">
-    		
-    	</div>
+    	<div class="class-foot"></div>
     </div>
+@endsection
+
+@section('script')
+	<script type="text/javascript">
+		$('.class-body ul li').mouseover(function(e){
+			$(this).css('box-shadow','5px 5px 5px 5px rgba(0, 170, 178, 1)');
+		});
+		$('.class-body ul li').mouseleave(function(e){
+			$(this).css('box-shadow','0 5px 10px 0 rgba(0, 0, 0, 0.3)');
+		});
+	</script>
 @endsection

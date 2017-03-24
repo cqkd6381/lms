@@ -70,7 +70,6 @@
     		font-size:16px;
     		padding-right: 10px;
     		color:#787d82;
-    		text-decoration-line: none; 
     	}
     </style>
 @endsection

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>@yield('title')</title>
-	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="{{asset('vendor/common/bootstrap-3.3.7/dist/css/bootstrap.min.css')}}" rel="stylesheet">
 	<link href="{{asset('vendor/common/css/ie10-viewport-bug-workaround.css')}}" rel="stylesheet">
 	<link href="{{asset('vendor/common/css/non-responsive.css')}}" rel="stylesheet">
 	@yield('style')
@@ -20,7 +20,7 @@
       	<div class="container">
 	        <div class="navbar-header">
 	          	<!-- The mobile navbar-toggle button can be safely removed since you do not need it in a non-responsive implementation -->
-	          	<a class="navbar-brand" href="#">百得课堂</a>
+	          	<a class="navbar-brand" href="{{route('index')}}">百得课堂</a>
 	        </div>
 	        <!-- Note that the .navbar-collapse and .collapse classes have been removed from the #navbar -->
 	        <div id="navbar">
@@ -75,8 +75,8 @@
       	</div>
     </nav>
 
-	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="{{asset('vendor/common/bootstrap-3.3.7/dist/js/jquery.min.js')}}"></script>
+	<script src="{{asset('vendor/common/bootstrap-3.3.7/dist/js/bootstrap.min.js')}}"></script>
 	<script src="https://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="{{asset('vendor/common/js/ie10-viewport-bug-workaround.js')}}"></script>
