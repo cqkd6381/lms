@@ -21,8 +21,9 @@ class CreateCourseTable extends Migration
             $table->string('introduction')->default('')->comment('课程简介');
             $table->text('description')->default('')->comment('课程描述');
             $table->integer('teacher_id')->comment('讲师id');
+            $table->integer('courseware_num')->comment('课件数量');
             $table->integer('hours')->default(0)->comment('课程时长（小时）');
-            $table->integer('category_id')->comment('课程分类id');
+            $table->string('categorys')->comment('课程分类id');
             $table->tinyInteger('difficulty')->default(1)->comment('难度1初级2中级3高级');
             $table->tinyInteger('is_recommend')->default(2)->comment('是否推荐1是2否');
             $table->tinyInteger('is_latest')->default(1)->comment('是否最新1是2否');
@@ -30,6 +31,7 @@ class CreateCourseTable extends Migration
             $table->decimal('fee',8,2)->default(0.00)->comment('课程费用（人民币）');
             $table->tinyInteger('status')->default(1)->comment('状态1开启2关闭');
             $table->bigInteger('create_time')->default(0)->comment('创建时间');
+            $table->bigInteger('publish_time')->default(0)->comment('发布时间');
             $table->integer('create_user')->comment('创建人id');
         });
     }

@@ -11,16 +11,17 @@
 		            </div>
 	            	<!-- /.box-header -->
 		            <!-- form start -->
-		            <form role="form" action="{{route('admin.course.store')}}" method="post">
+		            <form role="form" action="{{route('admin.course.update',['id'=>$data->id])}}" method="post">
 		            {{ csrf_field() }}
+		            {{ method_field('PUT') }}
 		              	<div class="box-body">
 			                <div class="form-group">
 			                  	<label for="title">课程名称</label>
-			                  	<input type="text" class="form-control" name="title" id="title" placeholder="课程名称" required>
+			                  	<input type="text" class="form-control" name="title" value="{{$data->title}}" id="title" placeholder="课程名称" required>
 			                </div>
 			                <div class="form-group">
 			                  	<label for="code">课程编号（格式[A-z0-9]+）（考虑是否需要系统生成）</label>
-			                  	<input type="text" class="form-control" name="code" id="code" pattern="[A-z0-9]+" placeholder="课程编号" required>
+			                  	<input type="text" class="form-control" name="code" value="{{$data->code}}" id="code" pattern="[A-z0-9]+" placeholder="课程编号" required>
 			                </div>
 			                <div class="form-group">
 			                  	<label>课程讲师（如果不存在，请先添加）</label>
@@ -57,7 +58,7 @@
 			                		</tr>
 			                	</table>
 			                </div>
-			               	
+			               
 			                <div class="form-group">
 			                  	<label for="imgpath">课程图片</label>
 			                  	<input type="file" id="imgpath" name="imgpath" required>
@@ -66,23 +67,18 @@
 			                </div>
 
 			                <div class="form-group">
-			                  	<label for="title">显示顺序(1-9999数字越大，排序越靠前)</label>
-			                  	<input type="number" class="form-control" name="display_order" id="title" min="1" max="9999" value="1" required>
+			                  	<label for="display_order">显示顺序(1-9999数字越大，排序越靠前)</label>
+			                  	<input type="number" class="form-control" name="display_order" value="{{$data->display_order}}" id="display_order" min="1" max="9999" value="1" required>
 			                </div>
 
 			                <div class="form-group">
 			                  	<label>课程介绍</label>
-			                  	<textarea class="form-control" name="introduction" rows="3" placeholder="Enter ..."></textarea>
+			                  	<textarea class="form-control" name="introduction" rows="3" placeholder="Enter ...">{{$data->introduction}}</textarea>
 			                </div>
 			                <div class="form-group">
 			                  	<label>课程描述</label>
-			                  	<textarea class="form-control" name="description" rows="5" placeholder="Enter ..."></textarea>
+			                  	<textarea class="form-control" name="description" rows="5" placeholder="Enter ...">{{$data->description}}</textarea>
 			                </div>
-			                <!-- <div class="checkbox">
-			                  	<label>
-			                    	<input type="checkbox" name="is_send_email"> 是否邮件通知用户
-			                  	</label>
-			                </div> -->
 		              	</div>
 		              	<!-- /.box-body -->
 

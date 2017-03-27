@@ -6,8 +6,7 @@
 	        <div class="col-xs-12">
 	          	<div class="box">
 		            <div class="box-header">
-		              	<h3 class="box-title">课程列表</h3>
-		              	<a href="{{route('admin.course.create')}}" class="btn btn-primary text-right">添加课程</a>
+		              	<h3 class="box-title">选择需要添加到该路径的课程</h3>
 		            </div>
 	            	<div class="box-body">
 	              		<table id="example1" class="table table-bordered table-striped">
@@ -23,6 +22,7 @@
 				                  	<th>显示顺序</th>
 				                  	<th>是否推荐</th>
 				                  	<th>状态</th>
+				                  	<th>是否添加</th>
 				                  	<th>操作</th>
 				                </tr>
 			                </thead>
@@ -39,6 +39,9 @@
 					                  	<td>{{$data->display_order}}</td>
 					                  	<td>{{$data->is_recommend}}</td>
 					                  	<td>{{$data->status}}</td>
+					                  	<td>
+					                  		<button dd="{{$data->id}}" class="btn btn-block btn-success btn-xs add-to-career">添加</button>
+					                  	</td>
 					                  	<td>
 					                  		<a href="{{route('admin.course.show',['id'=>$data->id])}}">详情</a>|
 					                  		<a href="{{route('admin.course.edit',['id'=>$data->id])}}">编辑</a>|
@@ -61,4 +64,30 @@
 	        </div>
       	</div>
     </section>
+@endsection
+@section('script')
+<script type="text/javascript">
+	$('.add-to-career').click(function(){
+		var btn = $(this);
+		var dd = btn.attr('dd');
+		var career_id = {{$career_id}};
+		var tr = btn.parent().parent();
+		tr.hide("slow");
+		return false;
+
+		//ajax无法发送问题
+		$.ajax({
+			type:"post",
+			url:"{{route('ajax_career_course')}}",
+			data:"dd=" + dd +"&career_id=" + career_id,
+			success:function(msg){
+				console.log(msg);
+			}
+
+		});
+		console.log(dd);
+		console.log(tr);
+		// alert(22)
+	});
+</script>
 @endsection

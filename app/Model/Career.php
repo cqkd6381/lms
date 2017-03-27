@@ -1,12 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class File extends Model
+class Career extends Model
 {
-    protected $table = 'files';
+    protected $table = 'career';
 
     public $timestamps = false;
 }

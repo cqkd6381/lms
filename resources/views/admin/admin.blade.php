@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AdminLTE 2 | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
@@ -827,8 +828,9 @@
 <!-- ChartJS 1.0.1 -->
 <script src="{{asset('vendor/admin-lte/plugins/chartjs/Chart.min.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('vendor/admin-lte/dist/js/pages/dashboard2.js')}}"></script>
+<!-- <script src="{{asset('vendor/admin-lte/dist/js/pages/dashboard2.js')}}"></script> -->
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('vendor/admin-lte/dist/js/demo.js')}}"></script>
+@yield('script');
 </body>
 </html>
