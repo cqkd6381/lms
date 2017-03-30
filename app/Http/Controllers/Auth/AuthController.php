@@ -24,6 +24,16 @@ class AuthController extends Controller
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
+     * 用户认证后转向的URL
+     */
+    protected $redirectPath = '/';
+
+    /**
+     * 用户认证失败后的重定向位置URL
+     */
+    protected $loginPath = 'auth/login';
+
+    /**
      * Create a new authentication controller instance.
      *
      * @return void
@@ -31,6 +41,23 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+    }
+
+    /**
+     * login page
+     */
+    public function getLogin()
+    {
+
+        return view('auth.login');
+    }
+
+    /**
+     * register page
+     */
+    public function getRegister()
+    {
+        return view('auth.register');
     }
 
     /**

@@ -361,6 +361,7 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
+                        <li class="active"><a href="{{route('admin.category.index')}}"><i class="fa fa-circle-o"></i> 分类管理</a></li>
                         <li><a href="{{route('admin.course.index')}}"><i class="fa fa-circle-o"></i> 课程列表</a></li>
                         <li class="active"><a href="{{route('admin.course.create')}}"><i class="fa fa-circle-o"></i> 添加课程</a></li>
                         <li class="active"><a href="{{route('admin.course.create')}}"><i class="fa fa-circle-o"></i> 课件列表</a></li>
@@ -378,6 +379,20 @@
                     <ul class="treeview-menu">
                         <li><a href="{{route('admin.career.index')}}"><i class="fa fa-circle-o"></i> 路径列表</a></li>
                         <li class="active"><a href="{{route('admin.career.create')}}"><i class="fa fa-circle-o"></i>添加路径</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>标签管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('admin.career.index')}}"><i class="fa fa-circle-o"></i> 标签列表</a></li>
+                        <li class="active"><a href="{{route('admin.career.create')}}"><i class="fa fa-circle-o"></i>添加标签</a></li>
                     </ul>
                 </li>
 
@@ -831,6 +846,13 @@
 <!-- <script src="{{asset('vendor/admin-lte/dist/js/pages/dashboard2.js')}}"></script> -->
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('vendor/admin-lte/dist/js/demo.js')}}"></script>
-@yield('script');
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
+@yield('script')
 </body>
 </html>

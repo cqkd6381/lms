@@ -6,36 +6,29 @@
 	        <div class="col-xs-12">
 	          	<div class="box">
 		            <div class="box-header">
-		              	<h3 class="box-title">用户列表</h3>
+		              	<h3 class="box-title">分类列表</h3>
+		            	<a href="{{route('admin.category.create')}}" class="btn btn-primary text-right">添加分类</a>
 		            </div>
 	            	<div class="box-body">
 	              		<table id="example1" class="table table-bordered table-striped">
 			                <thead>
 				                <tr>
 				                  	<th>编号</th>
-				                  	<th>用户名</th>
-				                  	<th>姓名</th>
-				                  	<th>手机号</th>
-				                  	<th>最近登录时间</th>
+				                  	<th>分类名称</th>
+				                  	<th>创建人</th>
 				                  	<th>创建时间</th>
-				                  	<th>学习时长(h)</th>
-				                  	<th>会员状态</th>
-				                  	<th>状态</th>
+				                  	<th>更新时间</th>
 				                  	<th>操作</th>
 				                </tr>
 			                </thead>
 			                <tbody>
-				                @foreach($users as $user)
+				                @foreach($categorys as $category)
 				                	<tr>
-					                  	<td>{{$user->id}}</td>
-					                  	<td>{{$user->username}}</td>
-					                  	<td>{{$user->realname}}</td>
-					                  	<td>{{$user->mobilephone}}</td>
-					                  	<td>{{$user->last_login_time}}</td>
-					                  	<td>{{$user->created_at}}</td>
-					                  	<td>520</td>
-					                  	<td>6个月</td>
-					                  	<td>{{$user->active}}</td>
+					                  	<td>{{$category->id}}</td>
+					                  	<td>{{$category->name}}</td>
+					                  	<td>{{$category->created_user}}</td>
+					                  	<td>{{$category->created_at}}</td>
+					                  	<td>{{$category->updated_at}}</td>
 					                  	<td>
 					                  		详情 | 编辑
 					                  	</td>
@@ -48,7 +41,7 @@
 			                </tfoot>
 		              	</table>
 		              	<div class="text-right">
-	                		{!! $users->render() !!}
+	                		{!! $categorys->render() !!}
 	                	</div>
 	            	</div>
 	          	</div>

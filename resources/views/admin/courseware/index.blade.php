@@ -21,6 +21,7 @@
 				                  	<th>创建时间</th>
 				                  	<th>显示顺序</th>
 				                  	<th>文件路径</th>
+				                  	<th>是否收费</th>
 				                  	<th>状态</th>
 				                  	<th>操作</th>
 				                </tr>
@@ -32,10 +33,13 @@
 					                  	<td>{{$data->title}}</td>
 					                  	<td>{{$data->course_id}}</td>
 					                  	<td>{{$data->filesize}}</td>
-					                  	<td>{{$data->hours}}</td>
-					                  	<td>{{$data->create_time}}</td>
+					                  	<td>{{$data->minutes}}</td>
+					                  	<td>{{$data->created_at}}</td>
 					                  	<td>{{$data->display_order}}</td>
 					                  	<td>{{$data->video_path}}</td>
+					                  	<td>
+					                  		<button type="button" class="btn btn-block btn-success btn-xs">免 费</button>
+					                  	</td>
 					                  	<td>1</td>
 					                  	<td>
 					                  		<a href="{{route('get_show_courseware',['course_id'=>$course_id,'id'=>$data->id])}}">详情</a>|

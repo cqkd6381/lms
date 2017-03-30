@@ -16,8 +16,10 @@ class CreateUserIntegralTable extends Migration
             $table->increments('id')->comment('用户积分表');
             $table->integer('user_id')->comment('用户id');
             $table->integer('integral')->default(0)->comment('总积分');
-            $table->integer('create_time')->default(0)->comment('创建时间');
             $table->string('desctiption')->default('')->comment('备注');
+            $table->timestamps();
+
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

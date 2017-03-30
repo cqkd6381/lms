@@ -11,7 +11,7 @@
 		            </div>
 	            	<!-- /.box-header -->
 		            <!-- form start -->
-		            <form role="form" action="{{route('post_store_courseware',['course_id'=>$course_id])}}" method="post">
+		            <form role="form" action="{{route('post_store_courseware',['course_id'=>$course_id])}}" method="post" enctype="multipart/form-data" required>
 		            {{ csrf_field() }}
 		              	<div class="box-body">
 			                <div class="form-group">
@@ -19,10 +19,13 @@
 			                  	<input type="text" class="form-control" name="title" id="title" placeholder="课件名称" required>
 			                </div>
 			                <div class="form-group">
+			                  	<label for="video">课件文件</label>
+			                  	<input type="file" class="form-control" name="video" id="video" >
+			                </div>
+			                <div class="form-group">
 			                  	<label for="hours">课件时长</label>
 			                  	<input type="text" class="form-control" name="hours" id="hours" placeholder="课件时长" required>
 			                </div>
-
 			                <div class="form-group">
 			                  	<label for="display_order">显示顺序(1-9999数字越大，排序越靠前)</label>
 			                  	<input type="number" class="form-control" name="display_order" id="display_order" min="1" max="9999" value="1" required>

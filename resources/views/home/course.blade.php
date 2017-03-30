@@ -104,14 +104,17 @@
     		display: inline-block;
     	}
     	.course-body-two a span:nth-child(1){
-    		width:650px;
+    		width:600px;
     		float: left;
     		overflow: hidden;
     	}
-    	.course-body-two a span:nth-child(2){
+        .course-body-two a span:nth-child(2){
+            float: right;
+        }
+    	.course-body-two a span:nth-child(3){
     		float: right;
     	}
-    	.course-body-two a span:nth-child(3){
+    	.course-body-two a span:nth-child(4){
     		float: right;
     	}
     	.course-body-three form{
@@ -149,7 +152,7 @@
 @section('content')
     <div class="container">
     	<div class="course-head">
-    		<h1>shell编程之变量</h1>
+    		<h1>{{$data->title}}</h1>
     		<div class="course-head-content">
     			<div class="course-attr" style="background-color: #f00;border-radius: 5px;width:160px;">
     				<a href="">开始学习</a>
@@ -157,42 +160,41 @@
     			</div>
     			<div class="course-attr">
     				<span>学习人数</span>
-    				<i>30012</i>
+    				<i>{{$count}}</i>
     			</div>
     			<div class="course-attr">
     				<span>难度级别</span>
-    				<i>中级</i>
+    				<i>{{$data->difficulty}}</i>
     			</div>
     			<div class="course-attr">
     				<span>课程时长</span>
-    				<i>1小时51分</i>
+    				<i>{{($data->minutes)}}分钟</i>
     			</div>
     		</div>
     	</div>
     	<div class="course-body">
     		<div class="course-body-left">
     			<div class="course-body-one">
-	    			<p>简介：本课程是《Linux达人养成计划I》中第九章课程的延续，主要介绍Linux shell编程基础中的变量。包括Bash变量的分类和各变量的详细使用，如：用户自定义变量、环境变量、语系变量、位置参数变量和预定义变量。简介：本课程是《Linux达人养成计划I》中第九章课程的延续，主要介绍Linux shell编程基础中的变量。包括Bash变量的分类和各变量的详细使用，如：用户自定义变量、环境变量、语系变量、位置参数变量和预定义变量。</p>
+	    			<p>{{$data->description}}</p>
 
 	    			<span id="chapter">章节</span>
 	    			<span id="comment">评论</span>
 	    		</div>
 	    		<div class="course-body-two">
-	    			<a href="" target="_blank">
-    					<span>第1课 Bash变量与变量分类</span>
-    					<span class="glyphicon glyphicon-ok-sign"></span>
-    					<span>08:30</span>
-	    			</a>
-                    <a href="" target="_blank">
-                        <span>第2课 Bash变量与变量分类</span>
-                        <span class="glyphicon glyphicon-adjust"></span>
-                        <span>08:30</span>
-                    </a>
-                    <a href="" target="_blank">
-                        <span>第3课 Bash变量与变量分类</span>
-                        <span class="glyphicon glyphicon-play-circle"></span>
-                        <span>08:30</span>
-                    </a>
+	    			@foreach($courseware as $key=>$ware)
+                        <a href="{{route('video',['id'=>$ware->id])}}" target="_blank">
+                            <span>
+                                第{{$key+1}}课 {{$ware->title}}
+                            </span>
+                            <span class="glyphicon glyphicon-ok-sign"></span>
+                            <span> {{$ware->minutes}}分钟</span>
+                            <span style="color:green;">
+                                @if($key==0)
+                                免费
+                                @endif
+                            </span>
+                        </a>
+                    @endforeach
 	    		</div>
 	    		<div class="course-body-three">
     				<form class="form">

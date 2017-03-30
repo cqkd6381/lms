@@ -14,10 +14,13 @@ class CreateCareerCourseTable extends Migration
     {
         Schema::create('career_course', function (Blueprint $table) {
             $table->increments('id')->comment('路径-课程联系表');
-            $table->integer('course_id')->comment('课程id');
-            $table->integer('career_id')->comment('路径id');
-            $table->bigInteger('create_time')->comment('创建时间');
-            $table->bigInteger('create_user')->comment('创建人id');
+            $table->integer('course_id')->index()->comment('课程id');
+            $table->integer('career_id')->index()->comment('路径id');
+            $table->bigInteger('created_user')->comment('创建人id');//是否应该加这一字段？
+            $table->timestamps();
+
+            $table->foreign('course_id')->references('id')->on('course')->onDelete('cascade');
+            $table->foreign('career_id')->references('id')->on('career')->onDelete('cascade');
         });
     }
 

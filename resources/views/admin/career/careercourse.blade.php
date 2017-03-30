@@ -14,8 +14,9 @@
 			                <thead>
 				                <tr>
 				                  	<th>编号</th>
-				                  	<th>路径id</th>
-				                  	<th>课程id</th>
+				                  	<th>路径名称</th>
+				                  	<th>课程名称</th>
+				                  	<th>课程编号</th>
 				                  	<th>创建时间</th>
 				                  	<th>创建人</th>
 				                  	<th>操作</th>
@@ -25,13 +26,14 @@
 				                @foreach($datas as $data)
 					                <tr>
 					                  	<td>{{$data->id}}</td>
-					                  	<td>{{$data->career_id}}</td>
-					                  	<td>{{$data->course_id}}</td>
-					                  	<td>{{$data->create_time}}</td>
-					                  	<td>{{$data->create_user}}</td>
+					                  	<td>{{$data->name}}</td>
+					                  	<td>{{$data->code}}</td>
+					                  	<td>{{$data->title}}</td>
+					                  	<td>{{$data->created_at}}</td>
+					                  	<td>{{$data->username}}</td>
 					                  	<td>
 					                  		<a href="{{route('admin.course.show',['id'=>$data->course_id])}}">课程详情</a>|
-					                  		<a href="{{route('get_careercourse_delete',['career_id'=>$data->career_id,'course_id'=>$data->course_id])}}" onclick="return confirm('确定删除吗？');">删除</a>
+					                  		<a href="{{route('get_careercourse_delete',['id'=>$data->id])}}" onclick="return confirm('确定删除吗？');">删除</a>
 					                  	</td>
 					                </tr>
 				                @endforeach

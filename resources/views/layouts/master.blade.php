@@ -42,8 +42,8 @@
 	            	<button type="submit" class="btn btn-default">搜索</button>
 	          	</form>
 	          	<ul class="nav navbar-nav navbar-right">
-		            <li><a href="#">登陆</a></li>
-		            <li><a href="#">注册</a></li>
+		            <li><a href="{{route('login')}}">登陆</a></li>
+		            <li><a href="{{route('register')}}">注册</a></li>
 		            <li class="dropdown">
 			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的 <span class="caret"></span></a>
 			          	<ul class="dropdown-menu">
@@ -80,6 +80,6 @@
 	<script src="https://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="{{asset('vendor/common/js/ie10-viewport-bug-workaround.js')}}"></script>
-	 @yield('script')
+	@yield('script')
 </body>
 </html>

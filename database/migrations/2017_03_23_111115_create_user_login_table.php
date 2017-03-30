@@ -16,7 +16,9 @@ class CreateUserLoginTable extends Migration
             $table->increments('id')->comment('用户登录表');
             $table->integer('user_id')->comment('用户id');
             $table->char('login_ip',16)->default('')->comment('登录ip');
-            $table->bigInteger('login_time')->default(0)->comment('登录时间');
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

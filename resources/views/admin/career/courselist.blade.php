@@ -20,7 +20,6 @@
 				                  	<th>创建时间</th>
 				                  	<th>发布时间</th>
 				                  	<th>显示顺序</th>
-				                  	<th>是否推荐</th>
 				                  	<th>状态</th>
 				                  	<th>是否添加</th>
 				                  	<th>操作</th>
@@ -32,15 +31,14 @@
 					                  	<td>{{$data->id}}</td>
 					                  	<td>{{$data->title}}</td>
 					                  	<td>{{$data->code}}</td>
-					                  	<td>{{$data->courseware_num}}</td>
-					                  	<td>{{$data->hours}}</td>
-					                  	<td>{{$data->create_time}}</td>
-					                  	<td>{{$data->publish_time}}</td>
+					                  	<td>{{$data->courseware_nums}}</td>
+					                  	<td>{{$data->minutes}}</td>
+					                  	<td>{{$data->created_at}}</td>
+					                  	<td>{{$data->published_time}}</td>
 					                  	<td>{{$data->display_order}}</td>
-					                  	<td>{{$data->is_recommend}}</td>
 					                  	<td>{{$data->status}}</td>
 					                  	<td>
-					                  		<button dd="{{$data->id}}" class="btn btn-block btn-success btn-xs add-to-career">添加</button>
+					                  		<button dd="{{$data->id}}" class="btn btn-block btn-default btn-xs add-to-career">添加</button>
 					                  	</td>
 					                  	<td>
 					                  		<a href="{{route('admin.course.show',['id'=>$data->id])}}">详情</a>|
@@ -68,26 +66,31 @@
 @section('script')
 <script type="text/javascript">
 	$('.add-to-career').click(function(){
+		var user_id = 1;//等用户做好了再改
 		var btn = $(this);
 		var dd = btn.attr('dd');
 		var career_id = {{$career_id}};
 		var tr = btn.parent().parent();
-		tr.hide("slow");
-		return false;
-
-		//ajax无法发送问题
+		// return false;
 		$.ajax({
 			type:"post",
 			url:"{{route('ajax_career_course')}}",
-			data:"dd=" + dd +"&career_id=" + career_id,
-			success:function(msg){
-				console.log(msg);
+			data:"dd=" + dd +"&career_id=" + career_id + "&user_id=" + user_id,
+			success:function(data){
+				if(data.msg.code==1){
+					// alert(data.msg.msg)
+					btn.text('添加成功').removeClass('btn-default').addClass('btn-success');
+					tr.hide('slow',function(){
+						$(this).remove();
+					});
+				}else if(data.msg.code==0){
+					btn.text(data.msg.msg).removeClass('btn-default').addClass('btn-success');
+				}
 			}
 
 		});
-		console.log(dd);
-		console.log(tr);
-		// alert(22)
+		// console.log(dd);
+		// console.log(tr);
 	});
 </script>
 @endsection

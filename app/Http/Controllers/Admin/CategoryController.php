@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Model\User;
-class UserController extends Controller
+use App\Model\Category;
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(10); 
-        return view('admin.user.index',['users'=>$users]);
+        $categorys = Category::paginate(10); 
+        return view('admin.category.index',['categorys'=>$categorys]);
     }
 
     /**
@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-         // return view('admin.user.create');
+        //
     }
 
     /**

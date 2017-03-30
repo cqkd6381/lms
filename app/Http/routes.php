@@ -18,10 +18,22 @@
 Route::any('qiniu/auth','QiniuController@auth');
 Route::any('qiniu/upload','QiniuController@upload');
 
+
+// 认证路由...
+Route::get('auth/login', 'Auth\AuthController@getLogin')->name('login');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout')->name('logout');
+
+// 注册路由...
+Route::get('auth/register', 'Auth\AuthController@getRegister')->name('register');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
 /*前台*/
 //课程
-Route::get('/','IndexController@index')->name('index');
+Route::get('/{type?}','IndexController@index')->where('type','[1-3]')->name('index');
 Route::get('course/{id}','IndexController@course')->name('course');
+Route::get('video/{id}','IndexController@video')->name('video');
 
 Route::get('scene','IndexController@scene')->name('scene');
 
@@ -44,6 +56,10 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'], function(){
 	Route::resource('course','CourseController');
 	Route::get('coursedelete/{id}','CourseController@get_course_delete')->name('get_course_delete');
 
+	//分类管理
+	Route::resource('category','CategoryController');
+	Route::get('categorydelete/{id}','CategoryController@get_category_delete')->name('get_category_delete');
+
 	//课件管理
 	Route::get('courseware/{course_id}','CoursewareController@get_coursewarelist')->name('get_coursewarelist');
 	Route::get('courseware/{course_id}/show/{id}','CoursewareController@get_show_courseware')->name('get_show_courseware');
@@ -64,7 +80,10 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'], function(){
 	Route::get('careercourse/{id}','CareerController@get_careercourse')->name('get_careercourse');
 	Route::get('careercoursedelete/{id}','CareerController@get_careercourse_delete')->name('get_careercourse_delete');
 	Route::get('courselist/{id}','CareerController@get_courselist')->name('get_courselist');
-	Route::post('ajax_career_course','CareerController@ajax_career_course')->name('ajax_career_course');
+	
+	//ajax请求
+	Route::any('ajax_career_course','AjaxController@ajax_career_course')->name('ajax_career_course');
+	Route::any('ajax_change_course_status','AjaxController@ajax_change_course_status')->name('ajax_change_course_status');
 	// Route::get('')->name();
 
 

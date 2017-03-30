@@ -19,8 +19,8 @@
 			                  	<input type="text" class="form-control" name="title" value="{{$data->title}}" id="title" placeholder="课件名称" required>
 			                </div>
 			                <div class="form-group">
-			                  	<label for="hours">课件时长</label>
-			                  	<input type="text" class="form-control" name="hours" value="{{$data->hours}}" id="hours" placeholder="课件时长" required>
+			                  	<label for="minutes">课件时长</label>
+			                  	<input type="text" class="form-control" name="minutes" value="{{$data->minutes}}" id="minutes" placeholder="课件时长" required>
 			                </div>
 
 			                <div class="form-group">

@@ -20,8 +20,8 @@ class CreateGoodsTable extends Migration
             $table->integer('goods_months')->default(0)->comment('商品可用月份1、2、3、6、12、24、36个月');
             $table->tinyInteger('status')->default(0)->comment('商品状态1开启0关闭');
             $table->string('description')->default('')->comment('商品描述');
-            $table->bigInteger('create_time')->default(0)->comment('创建时间');
-            $table->integer('create_user')->comment('创建人id');
+            $table->integer('created_user')->comment('创建人id');
+            $table->timestamps();
         });
     }
 

@@ -14,10 +14,13 @@ class CreateCourseCommentTable extends Migration
     {
         Schema::create('course_comment', function (Blueprint $table) {
             $table->increments('id')->comment('课程评论表');
-            $table->integer('user_id')->comment('用户id');
-            $table->integer('course_id')->comment('课程id');
+            $table->integer('user_id')->index()->comment('用户id');
+            $table->integer('course_id')->index()->comment('课程id');
             $table->text('comment')->default('')->comment('评论内容');
-            $table->bigInteger('create_time')->default(0)->comment('评论时间');
+            $table->timestamps();
+
+            $table->foreign('course_id')->references('id')->on('course')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

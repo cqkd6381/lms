@@ -86,411 +86,49 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container clearfix">
     	<div class="filter">
-    		<a href="">推荐</a>
-    		<a href="">最新</a>
-    		<a href="">最热</a>
+    		<a href="{{route('index',['type'=>1])}}">推荐</a>
+    		<a href="{{route('index',['type'=>2])}}">最新</a>
+    		<a href="{{route('index',['type'=>3])}}">最热</a>
     		<a href=""><span class="glyphicon glyphicon-circle-arrow-right"></span></a>
     		<a href=""><span class="glyphicon glyphicon-circle-arrow-left"></span></a>
     		<span>1/28</span>
     	</div>
-
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}" target="_blank">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-		<a href="{{route('course',['id'=>1])}}">
-			<div class="box">
-				<div class="box-head">
-					<span>大数据</span>
-				</div>
-				<div class="box-body">
-					<span>Yii框架不得不说的故事—基础篇</span>
-					<p>YII是目前比较火的框架，框架里面使用了最新的技术和设计，可以说学习了使用了最新的技术和设计</p>
-				</div>
-				<div class="box-foot">
-					<span>中级</span>
-					<span>3666人在学</span>
-					<span>廖雪峰</span>
-				</div>
-			</div>
-		</a>
-    	
-    	
+    	@foreach($datas as $data)
+			<a href="{{route('course',['id'=>$data->id])}}">
+				<div class="box">
+					<div class="box-head">
+						<span>{{$data->name}}</span>
+					</div>
+					<div class="box-body">
+						<span>{{$data->title}}</span>
+						<p>{{$data->introduction}}</p>
+					</div>
+					<div class="box-foot">
+						<span>{{$data->difficulty}}</span>
+						<span>{{$data->learning_nums}}人在学</span>
+						<span>{{$data->realname}}</span>
+					</div>
+				</div>
+			</a>
+		@endforeach
+		<div class="clearfix"></div>
+    	<div class="text-right">
+			{!! $datas->render() !!}
+		</div>
     </div>
 @endsection
 @section('script')
 	<script type="text/javascript">
-		$('.box').mouseover(function(e){
-			$(this).css('box-shadow','0 5px 10px 0 rgba(0, 0, 0, 0.8)');
-		});
-		$('.box').mouseleave(function(e){
-			$(this).css('box-shadow','0 5px 10px 0 rgba(0, 0, 0, 0)');
-		});
+		$(function(){
+            $('.box').mouseover(function(e){
+                $(this).css('box-shadow','0 5px 10px 0 rgba(0, 0, 0, 0.8)');
+            });
+            $('.box').mouseleave(function(e){
+                $(this).css('box-shadow','0 5px 10px 0 rgba(0, 0, 0, 0)');
+            });
+            
+        });
 	</script>
 @endsection

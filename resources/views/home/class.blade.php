@@ -78,6 +78,21 @@
     	</div>
     	<div class="class-body">
     		<ul>
+                @foreach($datas as $data)
+        			<li>
+        				<div class="class-list-left">
+        					<a href="{{route('course',['id'=>$data->id])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+        				</div>
+        				<div class="class-list-right">
+        					<h3>
+        						<a href="{{route('course',['id'=>$data->id])}}">{{$data->title}}</a>
+        						<a>{{$data->courseware_nums}}个视频</a>
+        						<a>{{$data->minutes}}分钟</a>
+        					</h3>
+        					<p>{{$data->introduction}}</p>
+        				</div>
+        			</li>
+                @endforeach
     			<li>
     				<div class="class-list-left">
     					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
@@ -117,110 +132,7 @@
     					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
     				</div>
     			</li>
-    			<li>
-    				<div class="class-list-left">
-    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
-    				</div>
-    				<div class="class-list-right">
-    					<h3>
-    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
-    						<a>11个视频</a>
-    						<a>总时长89分钟</a>
-    					</h3>
-    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
-    				</div>
-    			</li>
-    			<li>
-    				<div class="class-list-left">
-    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
-    				</div>
-    				<div class="class-list-right">
-    					<h3>
-    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
-    						<a>11个视频</a>
-    						<a>总时长89分钟</a>
-    					</h3>
-    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
-    				</div>
-    			</li>
-    			<li>
-    				<div class="class-list-left">
-    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
-    				</div>
-    				<div class="class-list-right">
-    					<h3>
-    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
-    						<a>11个视频</a>
-    						<a>总时长89分钟</a>
-    					</h3>
-    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
-    				</div>
-    			</li>
-    			<li>
-    				<div class="class-list-left">
-    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
-    				</div>
-    				<div class="class-list-right">
-    					<h3>
-    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
-    						<a>11个视频</a>
-    						<a>总时长89分钟</a>
-    					</h3>
-    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
-    				</div>
-    			</li>
-    			<li>
-    				<div class="class-list-left">
-    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
-    				</div>
-    				<div class="class-list-right">
-    					<h3>
-    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
-    						<a>11个视频</a>
-    						<a>总时长89分钟</a>
-    					</h3>
-    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
-    				</div>
-    			</li>
-    			<li>
-    				<div class="class-list-left">
-    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
-    				</div>
-    				<div class="class-list-right">
-    					<h3>
-    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
-    						<a>11个视频</a>
-    						<a>总时长89分钟</a>
-    					</h3>
-    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
-    				</div>
-    			</li>
-    			<li>
-    				<div class="class-list-left">
-    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
-    				</div>
-    				<div class="class-list-right">
-    					<h3>
-    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
-    						<a>11个视频</a>
-    						<a>总时长89分钟</a>
-    					</h3>
-    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
-    				</div>
-    			</li>
-    			<li>
-    				<div class="class-list-left">
-    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
-    				</div>
-    				<div class="class-list-right">
-    					<h3>
-    						<a href="{{route('course',['id'=>1])}}">PHP 面向对象编程</a>
-    						<a>11个视频</a>
-    						<a>总时长89分钟</a>
-    					</h3>
-    					<p>Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</p>
-    				</div>
-    			</li>
+    			
     			
     		</ul>
     	</div>

@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Model\Course;
-
+use App\Model\Category;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -18,7 +19,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $datas = Course::orderBy('id', 'asc')->paginate(2);
+        $datas = Course::orderBy('id', 'asc')->paginate(10);
         // dd($data);
         return view('admin.course.index',compact('datas',$datas));
     }
@@ -30,7 +31,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('admin.course.create');
+        $categorys = Category::select('id','name')->get();
+        return view('admin.course.create',['categorys'=>$categorys]);
     }
 
     /**
@@ -41,28 +43,38 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        $data = new Course;
-        $data->title = $request->title;
-        $data->code = $request->code;
-        $data->teacher_id = $request->teacher_id;
-        $data->is_recommend = $request->is_recommend;
-        $data->difficulty = $request->difficulty;
-        $data->categorys = $request->categorys;
-        $data->imgpath = $request->imgpath;
-        $data->display_order = $request->display_order;
-        $data->introduction = $request->introduction;
-        $data->description = $request->description;
+        dd($request->all());
+        $filename = 'images/'.date('Y-m').'/'.date('YmdHis').mt_rand(10,99).'.png';
+        $res = Storage::put(
+            $filename,
+            file_get_contents($request->file('imgpath')->getRealPath())
+        );
+        if($res){
+            $data = new Course;
+            $data->title = $request->title;
+            $data->code = $request->code;
+            $data->teacher_id = $request->teacher_id;
+            $data->difficulty = $request->difficulty;
+            $data->category_id = $request->category_id;
+            $data->imgpath = $filename;
+            $data->display_order = $request->display_order;
+            $data->introduction = $request->introduction;
+            $data->description = $request->description;
 
-        $data->hours = 0;
-        $data->courseware_num = 0;
-        $data->is_latest = 1;
-        $data->fee = 0.00;//暂不启用
-        $data->status = 2;//默认关闭
-        $data->create_time = time();
-        $data->create_user = 3;
-        $data->save();
-        return redirect()->route('admin.course.index');
+            $data->minutes = 0;
+            $data->courseware_nums = 0;
+            $data->learning_nums = 0;
+            $data->is_latest = 1;
+            $data->is_recommend = 1;//已废弃（可更改为其他字段）
+            $data->fee = 0.00;//暂不启用
+            $data->status = 2;//默认关闭
+            $data->published_time = Carbon\Carbon::now();
+            $data->created_user = 1;
+            $data->save();
+            return redirect()->route('admin.course.index');
+        }else{
+            return back();
+        }
 
     }
 

@@ -19,7 +19,7 @@ class CareerController extends Controller
      */
     public function index()
     {
-        $datas = Career::orderBy('id', 'asc')->paginate(2);
+        $datas = Career::orderBy('id', 'asc')->paginate(10);
         return view('admin.career.index',['datas'=>$datas]);
     }
 
@@ -123,18 +123,21 @@ class CareerController extends Controller
     /*路径-课程-列表*/
     public function get_careercourse($career_id)
     {
-        $datas = CareerCourse::where('career_id',$career_id)->get();
-        // dd($data);
+        $datas = CareerCourse::leftjoin('career as a','a.id','=','career_course.career_id')
+        ->leftjoin('course as b','b.id','=','career_course.course_id')
+        ->leftjoin('users as c','c.id','=','career_course.created_user')
+        ->where('career_id',$career_id)->select('a.name','b.title','b.code','c.username','career_course.*')->get();
+        // dd($datas);
         return view('admin.career.careercourse',['datas'=>$datas,'career_id'=>$career_id]);
     }
 
     /*路径-课程-删除*/
-    public function get_careercourse_delete($career_id,$course_id)
+    public function get_careercourse_delete($id)
     {
-        $data = CareerCourse::where('career_id',$career_id)->where('course_id',$course_id)->first();
+        $data = CareerCourse::where('id',$id)->first();
         // dd($data);
         $data->delete();
-        return redirect()->route('admin.career.get_careercourse',['career_id'=>$career_id]);
+        return back();
     }
 
      /*路径-课程-添加*/
@@ -142,17 +145,11 @@ class CareerController extends Controller
     {
         $exist_courses = DB::table('career_course')->where('career_id',$career_id)->lists('course_id');
         // dd($exist_courses);
-        $datas = Course::whereNotIn('id', $exist_courses)->orderBy('id', 'desc')->paginate(3);
+        $datas = Course::whereNotIn('id', $exist_courses)->orderBy('id', 'desc')->paginate(10);
 
         // dd($datas);
         return view('admin.career.courselist',['datas'=>$datas,'career_id'=>$career_id]);
     }
 
-    /*ajax添加课程到路径*/
-    public function ajax_career_course()
-    {
-        // $career_id = $request->career_id;
-        // $dd = $request->dd;
-        return 11;
-    }
+    
 }

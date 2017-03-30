@@ -30,8 +30,8 @@
 					                  	<td>{{$data->name}}</td>
 					                  	<td>4</td>
 					                  	<td>{{$data->learning_nums}}</td>
-					                  	<td>{{$data->create_time}}</td>
-					                  	<td>{{$data->create_user}}</td>
+					                  	<td>{{$data->created_at}}</td>
+					                  	<td>{{$data->created_user}}</td>
 					                  	<td>{{$data->status}}</td>
 					                  	<td>
 					                  		<a href="{{route('admin.career.show',['id'=>$data->id])}}">详情</a>|

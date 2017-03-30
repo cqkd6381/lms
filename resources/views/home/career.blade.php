@@ -29,42 +29,15 @@
 
 @section('content')
     <div class="container">
-    	<section>
-    		<a href="{{route('class',['id'=>1])}}">
-    			<div class="box">
-    				<h1>大数据工程师</h1>
-    			</div>
-    		</a>
-    	</section>
-    	<section>
-    		<a href="{{route('class',['id'=>2])}}">
-    			<div class="box">
-    				<h1>前端工程师</h1>
-    			</div>
-    		</a>
-    	</section>
-    	<section>
-    		<a href="{{route('class',['id'=>3])}}">
-    			<div class="box">
-    				<h1>PHP工程师</h1>
-    			</div>
-    		</a>
-    	</section>
-    	<section>
-    		<a href="{{route('class',['id'=>4])}}">
-    			<div class="box">
-    				<h1>JAVA工程师</h1>
-    			</div>
-    		</a>
-    	</section>
-    	<section>
-    		<a href="{{route('class',['id'=>5])}}">
-    			<div class="box">
-    				<h1>LINUX工程师</h1>
-    			</div>
-    		</a>
-    	</section>
-    	
+        @foreach($datas as $data)
+        	<section>
+        		<a href="{{route('class',['id'=>$data->id])}}">
+        			<div class="box">
+        				<h1>{{$data->name}}</h1>
+        			</div>
+        		</a>
+        	</section>
+    	@endforeach
     </div>
 @endsection
 
