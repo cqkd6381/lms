@@ -26,7 +26,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
-##Phpstorm Usage
+## Phpstorm Usage
 
 1.您可以轻松地重命名您的类，方法和变量，并自动更正所有使用它们的位置。
 要尝试，将插入符号放在要重命名的符号上，然后按Shift + F6（Refactor | Rename）。 在出现的弹出窗口中键入新名称，或者选择一个建议的名称，然后按Enter键。
