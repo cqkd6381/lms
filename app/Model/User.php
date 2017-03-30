@@ -42,6 +42,17 @@ class User extends Model implements AuthenticatableContract,
         'password', 'remember_token',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function belongsToManyCourse()
     {
     	return $this->belongsToMany('App\Model\Course','teacher_id','id');
@@ -58,5 +69,49 @@ class User extends Model implements AuthenticatableContract,
                 break;
         }
         return $attr;
+    }
+
+    /**
+     * @param $role
+     * @return bool
+     */
+    public function hasRole($role)
+    {
+        if(is_string($role)){
+
+            return $this->roles->contains('name',$role);
+        }
+
+        return !!$role->intersect($this->roles)->count();
+    }
+    //$user->roles()->attach($role);//
+    //$role->permissions()->save($role)
+
+    /**
+     * 测试-分析用户是否有查看post的权限
+     * @param $post
+     * @return bool
+     */
+    public function owns($post)
+    {
+        return $this->id == $post->user_id;
+    }
+
+    /**
+     * 分析用户是否有看视频的权限
+     * @return bool
+     */
+    public function seeVipVideo()
+    {
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAdmin()
+    {
+
+        return $this->hasRole('admin');
     }
 }

@@ -35,6 +35,9 @@ class QiniuController extends Controller
   		$this->bucketMgr = new BucketManager($this->auth);
 	}
 
+    /**
+     * FFFFFF
+     */
     public function index()
     {
 	  	//获取列表数据

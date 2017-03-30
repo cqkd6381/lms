@@ -88,3 +88,9 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'], function(){
 
 
 });
+
+
+
+//测试路由
+
+Route::resource('posts','PostsController');

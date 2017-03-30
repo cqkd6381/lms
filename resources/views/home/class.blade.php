@@ -74,7 +74,7 @@
 @section('content')
     <div class="container">
     	<div class="class-head">
-    		<h1>大数据工程师</h1>
+    		<h1>{{$career_name}}</h1>
     	</div>
     	<div class="class-body">
     		<ul>

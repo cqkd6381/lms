@@ -73,6 +73,7 @@ class IndexController extends Controller
     {
         $datas = CareerCourse::leftjoin('course as c','c.id','=','career_course.course_id')
         ->where('career_id','=',$id)->get();
+        $career_name = Career::where('id','=',$id)->value('name');
         // var_dump($datas);
         // $dd = Course::where('status',1)->get();
         // foreach ($dd as $key => $value) {
@@ -81,7 +82,7 @@ class IndexController extends Controller
         // dd($dd);
         
         // var_dump($courseWithCareer);
-    	return view('home.class',['datas'=>$datas]);
+    	return view('home.class',['datas'=>$datas,'career_name'=>$career_name]);
     }
 
     /*视频播放*/

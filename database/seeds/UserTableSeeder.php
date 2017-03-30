@@ -14,7 +14,7 @@ class UserTableSeeder extends Seeder
         DB::table('users')->insert([
             'username' => str_random(10),
             'email' => str_random(10).'@gmail.com',
-            'password' => bcrypt('secret'),
+            'password' => bcrypt(str_random(10)),
             'mobilephone'=>18800000000 + mt_rand(1000,9999),
             'telephone'=>'0551-66666666',
             'realname'=>str_random(6),
@@ -29,6 +29,7 @@ class UserTableSeeder extends Seeder
             'description'=>str_random(10),
             'imgpath'=>'1.png',
             'last_login_time'=>Carbon\Carbon::now(),
+            'remember_token' => str_random(10),
             'created_at'=>Carbon\Carbon::now(),
             'updated_at'=>Carbon\Carbon::now()
         ]);
