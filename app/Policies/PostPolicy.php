@@ -22,6 +22,9 @@ class PostPolicy
 
     /**
      * 更新文章权限
+     * @param User $user
+     * @param Post $post
+     * @return bool
      */
     public function update(User $user,Post $post)
     {

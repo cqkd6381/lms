@@ -15,7 +15,11 @@ use App\Model\Courseware;
 class IndexController extends Controller
 {
 
-    /*线上课程列表*/
+    /**
+     * 线上课程列表
+     * @param array ...$type
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index(...$type)
     {
         // var_dump($type);exit;
@@ -46,7 +50,11 @@ class IndexController extends Controller
     	return view('home.index',['datas'=>$datas]);
     }
 
-    /*线上课程详情*/
+    /**
+     * 线上课程详情
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function course($id)
     {
         $data = Course::where('id',$id)->first();
@@ -55,21 +63,31 @@ class IndexController extends Controller
     	return view('home.course',['data'=>$data,'count'=>$count,'courseware'=>$courseware]);
     }
 
-    /*线下课程列表*/
+    /**
+     * 线下课程列表
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function scene()
     {
     	return view('home.scene');
     }
 
-    /*职业路径列表*/
+    /**
+     * 职业路径列表
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function career()
     {
         $datas = Career::where('status','1')->get();
     	return view('home.career',['datas'=>$datas]);
     }
 
-    /*职业路径详情*/
-    public function class($id)
+    /**
+     * 职业路径详情
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function classs($id)
     {
         $datas = CareerCourse::leftjoin('course as c','c.id','=','career_course.course_id')
         ->where('career_id','=',$id)->get();
@@ -85,7 +103,11 @@ class IndexController extends Controller
     	return view('home.class',['datas'=>$datas,'career_name'=>$career_name]);
     }
 
-    /*视频播放*/
+    /**
+     * 视频播放
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function video($id)
     {
         $data = Courseware::where('id',$id)->select('video_path')->first();

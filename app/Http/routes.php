@@ -40,7 +40,7 @@ Route::get('scene','IndexController@scene')->name('scene');
 
 //职业路径
 Route::get('career','IndexController@career')->name('career');
-Route::get('class/{id}','IndexController@class')->name('class');
+Route::get('class/{id}','IndexController@classs')->name('class');
 
 
 

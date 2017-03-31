@@ -14,7 +14,7 @@ class IndexController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin',['only'=>['index','store']]);
+//        $this->middleware('admin',['only'=>['index','store']]);
     }
 
     /**
