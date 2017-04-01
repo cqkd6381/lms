@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Model\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class SeeVipVideo
@@ -19,8 +20,8 @@ class SeeVipVideo
     }
 
 
-    public function seeVipVideo()
+    public function seeVipVideo(User $user)
     {
-
+        return $user->isVipToVideo();
     }
 }

@@ -14,7 +14,8 @@ class IndexController extends Controller
      */
     public function __construct()
     {
-//        $this->middleware('admin',['only'=>['index','store']]);
+        \Auth::loginUsingId(1);
+        $this->middleware('admin',['only'=>['index','store']]);
     }
 
     /**
@@ -23,9 +24,7 @@ class IndexController extends Controller
     public function index()
     {
 
-        \Auth::loginUsingId(1);
-
-    	return view('admin.index.index');
+        return view('admin.index.index');
     }
 
     /**

@@ -101,9 +101,9 @@ class User extends Model implements AuthenticatableContract,
      * 分析用户是否有看视频的权限
      * @return bool
      */
-    public function seeVipVideo()
+    public function isVipToVideo()
     {
-        return false;
+        return true;
     }
 
     /**

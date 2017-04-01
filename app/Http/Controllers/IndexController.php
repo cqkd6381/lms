@@ -12,6 +12,7 @@ use App\Model\CareerCourse;
 use App\Model\CourseUser;
 use App\Model\Category;
 use App\Model\Courseware;
+use App\Model\User;
 class IndexController extends Controller
 {
 
@@ -110,6 +111,14 @@ class IndexController extends Controller
      */
     public function video($id)
     {
+//        $post = Post::findOrFail(2);
+        \Auth::loginUsingId(1);
+        $user = User::where('id',1)->first();
+        dd($user);
+        //过滤权限
+//        $this->authorize('update',$post);
+        $this->authorize('seeVipVideo',$user);
+
         $data = Courseware::where('id',$id)->select('video_path')->first();
         return view('home.video',['data'=>$data]);
     }
