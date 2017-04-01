@@ -30,7 +30,7 @@
 	<div class="container">
 		<div style="width:100%;text-align: center;" id="layer-fa">
 			<video id="myvideo" controls="controls" width="100%" preload="metadata" autoplay="autoplay">
-				<source src="http://class.cqkd6381.com/Linux%E5%9F%BA%E7%A1%806.mp4" type="video/mp4">
+				<source src="{{$url}}" type="video/mp4">
 				Your browser does not support the video tag.
 			</video>
 			<div id="layer">

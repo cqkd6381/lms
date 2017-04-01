@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 //七牛云存储
-Route::any('qiniu/auth','QiniuController@auth');
+Route::any('qiniu/index','QiniuController@index');
 Route::any('qiniu/upload','QiniuController@upload');
 
 

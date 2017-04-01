@@ -81,7 +81,7 @@
                 @foreach($datas as $data)
         			<li>
         				<div class="class-list-left">
-        					<a href="{{route('course',['id'=>$data->id])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+        					<a href="{{route('course',['id'=>$data->id])}}"><img height="97" src="{{asset('vendor/common/img/1.jpg')}}"></a>
         				</div>
         				<div class="class-list-right">
         					<h3>
@@ -95,7 +95,7 @@
                 @endforeach
     			<li>
     				<div class="class-list-left">
-    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="{{asset('vendor/common/img/1.jpg')}}"></a>
     				</div>
     				<div class="class-list-right">
     					<h3>
@@ -108,7 +108,7 @@
     			</li>
     			<li>
     				<div class="class-list-left">
-    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="{{asset('vendor/common/img/1.jpg')}}"></a>
     				</div>
     				<div class="class-list-right">
     					<h3>
@@ -121,7 +121,7 @@
     			</li>
     			<li>
     				<div class="class-list-left">
-    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="http://class.ibestservice.com/lms/view/templates/blue/assets/images/online/635f52a863ebbac66fb177a59f6a5652.jpg"></a>
+    					<a href="{{route('course',['id'=>1])}}"><img height="97" src="{{asset('vendor/common/img/1.jpg')}}"></a>
     				</div>
     				<div class="class-list-right">
     					<h3>

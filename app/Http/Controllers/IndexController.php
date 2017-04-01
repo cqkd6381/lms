@@ -111,15 +111,19 @@ class IndexController extends Controller
      */
     public function video($id)
     {
+        $qiniu = new QiniuController;
+        $url = $qiniu->getUrl();
+//        dd($qiniu->getUrl());
 //        $post = Post::findOrFail(2);
-        \Auth::loginUsingId(1);
-        $user = User::where('id',1)->first();
-        dd($user);
-        //过滤权限
-//        $this->authorize('update',$post);
-        $this->authorize('seeVipVideo',$user);
+//        \Auth::loginUsingId(1);
+//        $user = User::where('id',1)->first();
+//        dd($user);
+//        //过滤权限
+////        $this->authorize('update',$post);
+//        $this->authorize('seeVipVideo',$user);
 
         $data = Courseware::where('id',$id)->select('video_path')->first();
-        return view('home.video',['data'=>$data]);
+
+        return view('home.video',['data'=>$data,'url'=>$url]);
     }
 }
