@@ -30,7 +30,7 @@
 					                  	<td>{{$category->created_at}}</td>
 					                  	<td>{{$category->updated_at}}</td>
 					                  	<td>
-					                  		详情 | 编辑
+											<a href="{{route('admin.category.edit',['id'=>$category->id])}}">编辑</a>
 					                  	</td>
 					                </tr>
 				                @endforeach

@@ -1,37 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>register</title>
-</head>
-<body>
-<h1>这是注册页面</h1>
+@extends('layouts.master')
 
-<form method="POST" action="/auth/register">
-    {!! csrf_field() !!}
+@section('content')
+    @include('errors.errors')
 
-    <div>
-        Name
-        <input type="text" name="name" value="{{ old('name') }}">
+    <div class="col-md-2 col-md-offset-5">
+        {!! Form::open(['url'=>'/auth/register']) !!}
+
+        <div class="form-group">
+            {!! Form::label('username','用户名:') !!}
+            {!! Form::text('username',null,['class'=>'form-control']) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('email','邮箱:') !!}
+            {!! Form::email('email',null,['class'=>'form-control']) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('password','密码:') !!}
+            {!! Form::password('password',['class'=>'form-control']) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('password_confirmation','确认密码:') !!}
+            {!! Form::password('password_confirmation',['class'=>'form-control']) !!}
+        </div>
+
+
+        {!! Form::submit('注册',['class'=>'btn btn-primary form-control']) !!}
+        {!! Form::close() !!}
     </div>
-
-    <div>
-        Email
-        <input type="email" name="email" value="{{ old('email') }}">
-    </div>
-
-    <div>
-        Password
-        <input type="password" name="password">
-    </div>
-
-    <div>
-        Confirm Password
-        <input type="password" name="password_confirmation">
-    </div>
-
-    <div>
-        <button type="submit">Register</button>
-    </div>
-</form>
-</body>
-</html>
+@stop

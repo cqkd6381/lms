@@ -111,7 +111,6 @@ class User extends Model implements AuthenticatableContract,
      */
     public function isAdmin()
     {
-
         return $this->hasRole('admin');
     }
 }

@@ -19,17 +19,27 @@ class Course extends Model
 
     protected $fillable=['code','title','imgpath','imgpath2','introduction','description','teacher_id','category_id','courseware_nums','learning_nums','minutes','difficulty','is_recommend','is_latest','display_order','fee','status','published_time','created_user'];
 
-    public function belongsToUser()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function users()
     {
     	return $this->belongsTo('App\Model\User','teacher_id','id');
     }
 
-    public function belongsToManyCareer()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function careers()
     {
-    	return $this->belongsToMany('App\Model\Career', 'career_course', 'course_id', 'career_id');
+    	return $this->belongsToMany(Career::class, 'career_course', 'course_id', 'career_id');
     }
 
-    /*将难易程度转换*/
+    /**
+     * 将难易程度转换
+     * @param $value
+     * @return string
+     */
     public function getDifficultyAttribute($value)
     {
     	switch ($value) {

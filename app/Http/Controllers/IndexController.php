@@ -13,6 +13,7 @@ use App\Model\CourseUser;
 use App\Model\Category;
 use App\Model\Courseware;
 use App\Model\User;
+use Illuminate\Support\Facades\Storage;
 class IndexController extends Controller
 {
 
@@ -23,7 +24,8 @@ class IndexController extends Controller
      */
     public function index(...$type)
     {
-        // var_dump($type);exit;
+//        $user = \Auth::user();
+//        dd($user);
         $type = empty($type)?'1':$type[0];
         switch ($type) {
             case '1':
@@ -79,7 +81,7 @@ class IndexController extends Controller
      */
     public function career()
     {
-        $datas = Career::where('status','1')->get();
+        $datas = Career::where('status','1')->where('pid',0)->orderBy('id','desc')->get();
     	return view('home.career',['datas'=>$datas]);
     }
 
@@ -123,7 +125,7 @@ class IndexController extends Controller
 //        $this->authorize('seeVipVideo',$user);
 
         $data = Courseware::where('id',$id)->select('video_path')->first();
-
+//        $file = Storage::disk('local')->get($data->video_path);
         return view('home.video',['data'=>$data,'url'=>$url]);
     }
 }

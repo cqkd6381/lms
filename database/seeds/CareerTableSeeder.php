@@ -13,6 +13,7 @@ class CareerTableSeeder extends Seeder
     {
         DB::table('career')->insert([
             'name'=>str_random(8),
+            'pid'=>1,
             'introduction'=>str_random(20),
             'description'=>str_random(40),
             'learning_nums'=>mt_rand(500,9999),

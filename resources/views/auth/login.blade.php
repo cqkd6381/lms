@@ -1,30 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>login</title>
-</head>
-<body>
-<h1>这是登录界面</h1>
-<form method="POST" action="/auth/login">
-    {!! csrf_field() !!}
+@extends('layouts.master')
 
-    <div>
-        Email
-        <input type="email" name="email" value="{{ old('email') }}">
-    </div>
+@section('content')
 
-    <div>
-        Password
-        <input type="password" name="password" id="password">
-    </div>
+    @include('errors.errors')
 
-    <div>
-        <input type="checkbox" name="remember"> Remember Me
-    </div>
+    <div class="col-md-4 col-md-offset-4">
+        {!! Form::open(['url'=>'auth/login']) !!}
 
-    <div>
-        <button type="submit">Login</button>
+        <div class="form-group">
+            {!! Form::label('email','邮箱:') !!}
+            {!! Form::email('email',null,['class'=>'form-control']) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('password','密码:') !!}
+            {!! Form::password('password',['class'=>'form-control']) !!}
+        </div>
+
+        {{--<div class="form-group">--}}
+            {{--{!! Form::label('remmber','记住我:') !!}--}}
+            {{--{!! Form::checkbox('remmber','记住我',['class'=>'form-control']) !!}--}}
+        {{--</div>--}}
+
+        {!! Form::submit('登录',['class'=>'btn btn-primary form-control']) !!}
+        {!! Form::close() !!}
     </div>
-</form>
-</body>
-</html>
+@stop

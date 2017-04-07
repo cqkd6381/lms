@@ -42,20 +42,28 @@
 	            	<button type="submit" class="btn btn-default">搜索</button>
 	          	</form>
 	          	<ul class="nav navbar-nav navbar-right">
-		            <li><a href="{{route('login')}}">登陆</a></li>
-		            <li><a href="{{route('register')}}">注册</a></li>
-		            <li class="dropdown">
-			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的 <span class="caret"></span></a>
-			          	<ul class="dropdown-menu">
-				            <li><a href="#">VIP会员</a></li>
-				            <li><a href="#">我的收藏</a></li>
-				            <li><a href="#">观看历史</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="#">个人资料</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="#">退出</a></li>
-			          	</ul>
-			        </li>
+					@if(!Auth::check())
+						<li><a href="/auth/login">登陆</a></li>
+						<li><a href="/auth/register">注册</a></li>
+
+					@else
+						<li><a href="#">{{Auth::user()->username}}</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的 <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								@if(Auth::user()->isAdmin())
+								<li><a href="/admin/index" target="_blank">后台管理</a></li>
+								@endif
+								<li><a href="#">VIP会员</a></li>
+								<li><a href="#">我的收藏</a></li>
+								<li><a href="#">观看历史</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">个人资料</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="/auth/logout">退出</a></li>
+							</ul>
+						</li>
+					@endif
 	          	</ul>
 	        </div><!--/.nav-collapse -->
       	</div>

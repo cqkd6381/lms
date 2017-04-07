@@ -2,6 +2,7 @@
 
 @section('content')
 	<section class="content">
+		@include('errors.adminerrors')
       	<div class="row">
 	       	<div class="col-md-12">
 	          	<!-- general form elements -->
@@ -11,33 +12,29 @@
 		            </div>
 	            	<!-- /.box-header -->
 		            <!-- form start -->
-		            <form role="form" action="{{route('admin.career.update',['id'=>$data->id])}}" method="post">
+		            <form role="form" action="{{route('admin.career.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
 		            {{ csrf_field() }}
 		            {{ method_field('PUT') }}
 		              	<div class="box-body">
 			                <div class="form-group">
 			                  	<label for="name">路径名称</label>
-			                  	<input type="text" class="form-control" name="name" id="name" value="{{$data->name}}" placeholder="路径名称" required>
-			                </div>
-			                <div class="form-group">
-			                  	<label for="tags">标签（以逗号分隔）</label>
-			                  	<input type="text" class="form-control" name="tags" value="{{$data->tags}}" id="tags" placeholder="路径名称" required>
+			                  	<input type="text" class="form-control" name="name" id="name" value="{{$data->name}}">
 			                </div>
 			               	
 			                <div class="form-group">
 			                  	<label for="imgpath">路径图片</label>
-			                  	<input type="file" id="imgpath" name="imgpath" required>
+			                  	<input type="file" id="imgpath" name="imgpath">
 
 			                  	<p class="help-block">*注意：图片尺寸214x97</p>
 			                </div>
 
 			                <div class="form-group">
 			                  	<label>路径介绍</label>
-			                  	<textarea class="form-control" name="introduction" rows="3" placeholder="Enter ...">{{$data->introduction}}</textarea>
+			                  	<textarea class="form-control" name="introduction" rows="3">{{$data->introduction}}</textarea>
 			                </div>
 			                <div class="form-group">
 			                  	<label>路径描述</label>
-			                  	<textarea class="form-control" name="description" rows="5" placeholder="Enter ...">{{$data->description}}</textarea>
+			                  	<textarea class="form-control" name="description" rows="5">{{$data->description}}</textarea>
 			                </div>
 		              	</div>
 		              	<!-- /.box-body -->

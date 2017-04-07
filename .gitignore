@@ -3,4 +3,4 @@
 Homestead.yaml
 Homestead.json
 .env
-/app/storage/app
+/public/uploads

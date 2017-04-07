@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categorys = Category::paginate(10); 
+        $categorys = Category::orderBy('id','asc')->paginate(10);
         return view('admin.category.index',['categorys'=>$categorys]);
     }
 
@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
@@ -36,9 +36,14 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\CreateCategoryRequest $request)
     {
-        //
+        Category::create([
+            'name'=>$request->name,
+            'description'=>$request->description,
+            'created_user'=>\Auth::user()->id,
+        ]);
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -60,7 +65,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Category::where('id',$id)->first();
+        return view('admin.category.edit',['data'=>$data]);
     }
 
     /**
@@ -70,9 +76,14 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\CreateCategoryRequest $request, $id)
     {
-        //
+
+        $model = Category::where('id',$id)->first();
+        $model->name = $request->name;
+        $model->description = $request->description;
+        $model->save();
+        return redirect()->route('admin.category.index');
     }
 
     /**

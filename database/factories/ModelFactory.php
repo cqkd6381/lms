@@ -14,11 +14,11 @@
 $factory->define(App\Model\User::class, function (Faker\Generator $faker) {
     return [
         'username' => str_random(10),
-        'email' => str_random(10).'@gmail.com',
+        'email' => $faker->email,
         'password' => bcrypt(str_random(10)),
         'mobilephone'=>18800000000 + mt_rand(1000,9999),
         'telephone'=>'0551-66666666',
-        'realname'=>str_random(6),
+        'realname'=>$faker->name,
         'qq'=>1023929000+mt_rand(1000,9999),
         'sex'=>0,
         'reg_ip'=>'192.168.1.11',

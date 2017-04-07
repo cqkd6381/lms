@@ -17,7 +17,7 @@
 				                  	<th>课件名称</th>
 				                  	<th>所属课程id</th>
 				                  	<th>文件大小</th>
-				                  	<th>课件时长(h)</th>
+				                  	<th>课件时长(分钟)</th>
 				                  	<th>创建时间</th>
 				                  	<th>显示顺序</th>
 				                  	<th>文件路径</th>
@@ -44,7 +44,7 @@
 					                  	<td>
 					                  		<a href="{{route('get_show_courseware',['course_id'=>$course_id,'id'=>$data->id])}}">详情</a>|
 					                  		<a href="{{route('get_edit_courseware',['course_id'=>$course_id,'id'=>$data->id])}}">编辑</a>|
-					                  		<a href="{{route('get_delete_courseware',['course_id'=>$course_id,'id'=>$data->id])}}" onclick="return confirm('确定删除吗？');">删除</a>
+					                  		<a href="{{route('get_delete_courseware',['course_id'=>$course_id,'id'=>$data->id])}}" onclick="return confirm('确定将课件一起删除吗？');">删除</a>
 					                  	</td>
 					                </tr>
 				                @endforeach

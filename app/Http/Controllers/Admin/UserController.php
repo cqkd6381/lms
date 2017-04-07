@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(10); 
+        $users = User::paginate(15);
         return view('admin.user.index',['users'=>$users]);
     }
 
@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-         // return view('admin.user.create');
+          return view('admin.user.create');
     }
 
     /**

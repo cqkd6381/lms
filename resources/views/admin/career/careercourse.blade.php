@@ -6,15 +6,15 @@
 	        <div class="col-xs-12">
 	          	<div class="box">
 		            <div class="box-header">
-		              	<h3 class="box-title">路径-课程列表</h3>
-		              	<a href="{{route('get_courselist',['career_id'=>$career_id])}}" class="btn btn-primary">添加课程到该路径</a>
+		              	<h3 class="box-title">路径子分类-课程列表</h3>
+		              	<a href="{{route('get_courselist',['career_id'=>$career_id])}}" class="btn btn-primary">添加课程到该路径子分类</a>
 		            </div>
 	            	<div class="box-body">
 	              		<table id="example1" class="table table-bordered table-striped">
 			                <thead>
 				                <tr>
 				                  	<th>编号</th>
-				                  	<th>路径名称</th>
+				                  	<th>路径子分类</th>
 				                  	<th>课程名称</th>
 				                  	<th>课程编号</th>
 				                  	<th>创建时间</th>
@@ -27,8 +27,8 @@
 					                <tr>
 					                  	<td>{{$data->id}}</td>
 					                  	<td>{{$data->name}}</td>
-					                  	<td>{{$data->code}}</td>
-					                  	<td>{{$data->title}}</td>
+										<td>{{$data->title}}</td>
+										<td>{{$data->code}}</td>
 					                  	<td>{{$data->created_at}}</td>
 					                  	<td>{{$data->username}}</td>
 					                  	<td>

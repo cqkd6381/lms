@@ -36,7 +36,7 @@
 					                  	<td>
 					                  		<a href="{{route('admin.career.show',['id'=>$data->id])}}">详情</a>|
 					                  		<a href="{{route('admin.career.edit',['id'=>$data->id])}}">编辑</a>|
-					                  		<a href="{{route('get_careercourse',['career_id'=>$data->id])}}">课程管理</a>|
+											<a href="{{route('admin.career.career_category',['id'=>$data->id])}}">子分类管理</a>|
 					                  		<a href="{{route('get_career_delete',['id'=>$data->id])}}" onclick="return confirm('确定删除吗？');">删除</a>
 					                  	</td>
 					                </tr>
