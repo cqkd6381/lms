@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6537d67f-5a88-4c5f-9214-0a8c61e766f1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CareerController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CareerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/Course.php" afterPath="$PROJECT_DIR$/app/Model/Course.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/CourseUser.php" afterPath="$PROJECT_DIR$/app/Model/CourseUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Model/User.php" afterPath="$PROJECT_DIR$/app/Model/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/factories/ModelFactory.php" afterPath="$PROJECT_DIR$/database/factories/ModelFactory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/admin.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/admin.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home/course.blade.php" afterPath="$PROJECT_DIR$/resources/views/home/course.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home/video.blade.php" afterPath="$PROJECT_DIR$/resources/views/home/video.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,11 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="course.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="course.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/home/course.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="346">
               <caret line="255" column="30" lean-forward="false" selection-start-line="255" selection-start-column="30" selection-end-line="255" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="video.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/home/video.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="31" column="103" lean-forward="false" selection-start-line="31" selection-start-column="103" selection-end-line="31" selection-end-column="103" />
               <folding />
             </state>
           </provider>
@@ -175,7 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/storage/logs/laravel.log" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/zh_cn/passwords.php" />
@@ -226,6 +225,7 @@
         <option value="$PROJECT_DIR$/database/migrations/2017_04_07_160235_create_collections_table.php" />
         <option value="$PROJECT_DIR$/app/Model/Collection.php" />
         <option value="$PROJECT_DIR$/resources/views/home/course.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/home/video.blade.php" />
       </list>
     </option>
   </component>
@@ -248,8 +248,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="51" />
-    <option name="y" value="274" />
+    <option name="x" value="-21" />
+    <option name="y" value="238" />
     <option name="width" value="1936" />
     <option name="height" value="771" />
   </component>
@@ -309,7 +309,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -323,11 +327,15 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -341,15 +349,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -461,12 +461,12 @@
       <workItem from="1491008168468" duration="17964000" />
       <workItem from="1491353278481" duration="36960000" />
       <workItem from="1491439199898" duration="39004000" />
-      <workItem from="1491525413817" duration="17691000" />
+      <workItem from="1491525413817" duration="19864000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133100000" />
+    <option name="totallyTimeSpent" value="135273000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -478,7 +478,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="51" y="274" width="1936" height="771" extended-state="0" />
+    <frame x="-21" y="238" width="1936" height="771" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -514,13 +514,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/category/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -927,6 +920,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="346">
           <caret line="255" column="30" lean-forward="false" selection-start-line="255" selection-start-column="30" selection-end-line="255" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/video.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="31" column="103" lean-forward="false" selection-start-line="31" selection-start-column="103" selection-end-line="31" selection-end-column="103" />
           <folding />
         </state>
       </provider>
