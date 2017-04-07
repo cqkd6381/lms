@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>@yield('title')</title>
 	<link href="{{asset('vendor/common/bootstrap-3.3.7/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -88,6 +89,13 @@
 	<script src="https://cdn.bootcss.com/vue/2.2.4/vue.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="{{asset('vendor/common/js/ie10-viewport-bug-workaround.js')}}"></script>
+	<script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+	</script>
 	@yield('script')
 </body>
 </html>

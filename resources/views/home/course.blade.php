@@ -133,30 +133,14 @@
     </style>
 @endsection
 
-@section('script')
-	<script type="text/javascript">
-		$('.course-body-three').hide();
-		$(function(){
-			$('#chapter').click(function(){
-				$('.course-body-two').show();
-				$('.course-body-three').hide();
-			});
-			$('#comment').click(function(){
-				$('.course-body-two').hide();
-				$('.course-body-three').show();
-			});
-		});
-	</script>
-@endsection
-
 @section('content')
     <div class="container">
     	<div class="course-head">
     		<h1>{{$data->title}}</h1>
     		<div class="course-head-content">
     			<div class="course-attr" style="background-color: #f00;border-radius: 5px;width:160px;">
-    				<a href="">开始学习</a>
-    				<a href="" class="glyphicon glyphicon-heart-empty"></a>
+    				<a href="javascript:void(0);" class="learn-start">开始学习</a>
+    				<a href="javascript:void(0);" class="glyphicon glyphicon-heart learn-collect"></a>
     			</div>
     			<div class="course-attr">
     				<span>学习人数</span>
@@ -199,51 +183,23 @@
 	    		<div class="course-body-three">
     				<form class="form">
     					<div class="form-group">
-    						<textarea class="form-control" rows="5" placeholder="扯淡、吐槽、表扬、鼓励......想说啥就说啥！"></textarea>
+    						<textarea class="form-control comment-text" rows="5" placeholder="扯淡、吐槽、表扬、鼓励......想说啥就说啥！"></textarea>
     					</div>
 						<div class="form-group">
 						    <div class="col-sm-offset-10 col-sm-2">
-						     	<button type="submit" class="btn btn-primary">发表评论</button>
+						     	<button type="button" class="btn btn-primary comment">发表评论</button>
 						    </div>
 					  	</div>
     				</form>
-	    			<ul>
+	    			<ul class="uuu">
+						@foreach($comments as $comment)
                         <li>
                             <div>
-                                <p>还有没有在学的啊。学的右下角点个赞</p>
-                                <p>时间：2016-04-11 廖雪峰</p>
+                                <p>{{$comment->comment}}</p>
+                                <p>时间：{{$comment->created_at}} {{$comment->realname}}</p>
                             </div>
                         </li>
-                        <li>
-                            <div>
-                                <p>还有没有在学的啊。学的右下角点个赞</p>
-                                <p>时间：2016-04-11 廖雪峰</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <p>还有没有在学的啊。学的右下角点个赞</p>
-                                <p>时间：2016-04-11 廖雪峰</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <p>还有没有在学的啊。学的右下角点个赞</p>
-                                <p>时间：2016-04-11 廖雪峰</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <p>还有没有在学的啊。学的右下角点个赞</p>
-                                <p>时间：2016-04-11 廖雪峰</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <p>还有没有在学的啊。学的右下角点个赞</p>
-                                <p>时间：2016-04-11 廖雪峰</p>
-                            </div>
-                        </li>            
+                         @endforeach
                     </ul>
 	    		</div>
     		</div>
@@ -255,5 +211,50 @@
     		
     	</div>
     </div>
+@endsection
+@section('script')
+	<script>
+        $('.course-body-three').hide();
+        $(function(){
+            $('#chapter').click(function(){
+                $('.course-body-two').show();
+                $('.course-body-three').hide();
+            });
+            $('#comment').click(function(){
+                $('.course-body-two').hide();
+                $('.course-body-three').show();
+            });
+        });
+		$('.comment').click(function(){
+            var uuu = $('.uuu');
+            var area = $('.comment-text');
+            var text = area.val().trim();
+            if(text==''){
+				return false;
+			}
+			var user_id = {{Auth::check()?Auth::user()->id:0}};
+			if(user_id==0){
+			    alert('请登录后再评论！');
+			    return false;
+			}
+			var course_id = {{$data->id}};
+            $.ajax({
+                type:"post",
+                url:"{{route('ajax_comment')}}",
+                data:"text="+text+"&user_id="+user_id+"&course_id="+course_id,
+                success:function(data){
+                    if(data.msg.code==1){
+						uuu.prepend(data.msg.comment);
+						area.val('');
+                    }else if(data.msg.code==0){
+
+                    }
+                }
+            });
+		});
+		$('.learn-collect').click(function () {
+			alert('此功能正在开发中');
+        });
+	</script>
 @endsection
 

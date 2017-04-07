@@ -53,11 +53,15 @@ class User extends Model implements AuthenticatableContract,
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function belongsToManyCourse()
+    public function courses()
     {
-    	return $this->belongsToMany('App\Model\Course','teacher_id','id');
+    	return $this->belongsToMany(Course::class,'teacher_id','id');
     }
 
+    /**
+     * @param $value
+     * @return string
+     */
     public function getActiveAttribute($value)
     {
         switch ($value) {
@@ -69,6 +73,14 @@ class User extends Model implements AuthenticatableContract,
                 break;
         }
         return $attr;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function courseComments()
+    {
+        return $this->hasMany(CourseComment::class);
     }
 
     /**

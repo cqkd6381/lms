@@ -243,8 +243,6 @@ class CareerController extends Controller
 
     public function updateCategory(Requests\CareerCategoryRequest $request, $id)
     {
-//        echo $id;
-//        dd($request->all());
         Career::where('id',$id)->update(['name'=>$request->name,'introduction'=>$request->introduction]);
 
         return redirect()->back();

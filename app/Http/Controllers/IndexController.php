@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\CourseComment;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -63,7 +64,11 @@ class IndexController extends Controller
         $data = Course::where('id',$id)->first();
         $count = CourseUser::where('course_id',$id)->count();
         $courseware = Courseware::where('course_id',$id)->select('title','minutes','id')->orderBy('display_order','asc')->get();
-    	return view('home.course',['data'=>$data,'count'=>$count,'courseware'=>$courseware]);
+        $comments = CourseComment::where('course_id',$id)->orderBy('id','desc')->get()->map(function($comment){
+            $comment->realname = $comment->user->username;
+            return $comment;
+        });
+    	return view('home.course',['data'=>$data,'count'=>$count,'courseware'=>$courseware,'comments'=>$comments]);
     }
 
     /**

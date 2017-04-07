@@ -41,3 +41,13 @@ $factory->define(App\Model\Post::class, function (Faker\Generator $faker) {
         'body' => $faker->paragraph,
     ];
 });
+
+
+$factory->define(App\Model\CourseComment::class, function (Faker\Generator $faker) {
+
+    return [
+        'user_id' => 2,
+        'course_id' => 1,
+        'comment' => $faker->sentence,
+    ];
+});

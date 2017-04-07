@@ -35,6 +35,11 @@ class Course extends Model
     	return $this->belongsToMany(Career::class, 'career_course', 'course_id', 'career_id');
     }
 
+    public function courseComments()
+    {
+        return $this->hasMany(CourseComment::class);
+    }
+
     /**
      * 将难易程度转换
      * @param $value
@@ -56,6 +61,10 @@ class Course extends Model
     	return $attr;
     }
 
+    /**
+     * @param $value
+     * @return string
+     */
     public function getStatusAttribute($value)
     {
         switch ($value) {
@@ -69,16 +78,4 @@ class Course extends Model
         return $attr;
     }
 
-    public function getIsRecommendAttribute($value)
-    {
-        switch ($value) {
-            case '1':
-                $attr = self::RECOMMEND_YES;
-                break;
-            case '2':
-                $attr = self::RECOMMEND_NO;
-                break;
-        }
-        return $attr;
-    }
 }

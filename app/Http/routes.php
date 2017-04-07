@@ -36,7 +36,7 @@ Route::get('course/{id}','IndexController@course')->name('course');
 Route::get('video/{id}','IndexController@video')->name('video');
 
 Route::get('scene','IndexController@scene')->name('scene');
-
+Route::post('commentStore','AjaxController@commentStore')->name('ajax_comment');
 
 //职业路径
 Route::get('career','IndexController@career')->name('career');
@@ -91,8 +91,8 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware'=>'admin'],
 	//ajax请求
 	Route::any('ajax_career_course','AjaxController@ajax_career_course')->name('ajax_career_course');
 	Route::any('ajax_change_course_status','AjaxController@ajax_change_course_status')->name('ajax_change_course_status');
-	// Route::get('')->name();
 
+	// Route::get('')->name();
 
 });
 

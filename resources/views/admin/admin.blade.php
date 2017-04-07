@@ -394,8 +394,21 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{route('admin.career.index')}}"><i class="fa fa-circle-o"></i> 标签列表</a></li>
-                        <li class="active"><a href="{{route('admin.career.create')}}"><i class="fa fa-circle-o"></i>添加标签</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 标签列表</a></li>
+                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i>添加标签</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>评论管理</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 评论列表</a></li>
                     </ul>
                 </li>
 

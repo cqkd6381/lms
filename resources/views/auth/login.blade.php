@@ -4,12 +4,12 @@
 
     @include('errors.errors')
 
-    <div class="col-md-4 col-md-offset-4">
+    <div class="col-md-2 col-md-offset-5">
         {!! Form::open(['url'=>'auth/login']) !!}
 
         <div class="form-group">
             {!! Form::label('email','邮箱:') !!}
-            {!! Form::email('email',null,['class'=>'form-control']) !!}
+            {!! Form::email('email',old('email'),['class'=>'form-control']) !!}
         </div>
 
         <div class="form-group">
