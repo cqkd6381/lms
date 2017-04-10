@@ -16,8 +16,8 @@ class User extends Model implements AuthenticatableContract,
 {
     use Authenticatable, Authorizable, CanResetPassword;
 
-	const STATUS_OPEN = '开启';
-    const STATUS_CLOSE = '关闭';
+//	const STATUS_OPEN = '开启';
+//    const STATUS_CLOSE = '关闭';
 
     /**
      * The database table used by the model.
@@ -62,18 +62,18 @@ class User extends Model implements AuthenticatableContract,
      * @param $value
      * @return string
      */
-    public function getActiveAttribute($value)
-    {
-        switch ($value) {
-            case '1':
-                $attr = self::STATUS_OPEN;
-                break;
-            case '2':
-                $attr = self::STATUS_CLOSE;
-                break;
-        }
-        return $attr;
-    }
+//    public function getActiveAttribute($value)
+//    {
+//        switch ($value) {
+//            case '1':
+//                $attr = self::STATUS_OPEN;
+//                break;
+//            case '2':
+//                $attr = self::STATUS_CLOSE;
+//                break;
+//        }
+//        return $attr;
+//    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

@@ -6,8 +6,7 @@
 
 @section('style')
 	<style type="text/css">
-		#layer-fa
-		{
+		#layer-fa{
 			position: relative;
 		}
 		#layer{

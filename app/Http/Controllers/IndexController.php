@@ -133,14 +133,14 @@ class IndexController extends Controller
             return redirect('auth/login');
         }else{
             $data = Courseware::findOrFail($id);
-            if($data->is_charge=1){
+            if($data->is_charge==1){
                 $usergoods = UserGoods::find(1);
                 if(Gate::denies('seeVipVideo',$usergoods)){
                     return redirect()->route('vip');
                 }
             }
         }
-        return view('home.video',['data'=>$data]);
+        return view('home.video2',['data'=>$data]);
     }
 
     public function vip()
