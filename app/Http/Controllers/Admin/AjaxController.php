@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\Courseware;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -32,24 +33,31 @@ class AjaxController extends Controller
     /*ajax修改课程状态*/
     public function ajax_change_course_status(Request $request)
     {
-        $id = $request->dd;
-        $status = Course::where('id','=',$id)->value('status');
-        
-        $new_status = ($status=='开启')?'2':'1';
-        $status_text = ($status=='开启')?'关闭':'开启';
-        $addclass = ($status=='开启')?'btn-default':'btn-success';
-        $removeclass = ($status=='开启')?'btn-success':'btn-default';
-        $res = Course::where('id','=',$id)->update(['status' => $new_status]);
+        $model = Course::find($request->id);
+
+        $model->status = ($model->status==1)?2:1;
+        $res = $model->save();
         if($res){
-            $msg['msg'] = "更新成功";
-            $msg['code'] = 1;
-            $msg['status_text'] = $status_text;
-            $msg['removeclass'] = $removeclass;
-            $msg['addclass'] = $addclass;
-        }else{
-            $msg['msg'] = "更新失败，请重试";
-            $msg['code'] = 0;
+            $msg['msg'] = $model->status;
+
         }
-        return response()->json(array('msg'=> $msg), 200);
+        return response()->json(['msg'=>$msg],200);
+    }
+
+    public function ajax_change_course_ware_charge(Request $request)
+    {
+        $model = Courseware::find($request->id);
+
+        $model->is_charge = ($model->is_charge==1)?2:1;
+
+        $res = $model->save();
+
+        if($res){
+            $msg['msg'] = $model->is_charge;
+        }
+        return response()->json(['msg'=>$msg],200);
+
+
+
     }
 }

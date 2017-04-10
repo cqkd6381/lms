@@ -2,10 +2,12 @@
 
 namespace App\Policies;
 
+use App\Model\Courseware;
 use App\Model\User;
+use App\Model\UserGoods;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class SeeVipVideo
+class SeeVipVideoPolicy
 {
     use HandlesAuthorization;
 
@@ -20,8 +22,8 @@ class SeeVipVideo
     }
 
 
-    public function seeVipVideo(User $user)
+    public function seeVipVideo(User $user,UserGoods $usergoods)
     {
-        return $user->isVipToVideo();
+        return $user->isVipToVideo($usergoods);
     }
 }

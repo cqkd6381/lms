@@ -9,8 +9,8 @@ class Course extends Model
     const DIFFICULTY_MIDDLE = '中级';
     const DIFFICULTY_ADVANCED = '高级';
 
-    const STATUS_OPEN = '开启';
-    const STATUS_CLOSE = '关闭';
+//    const STATUS_OPEN = '开启';
+//    const STATUS_CLOSE = '关闭';
 
     const RECOMMEND_YES = '是';
     const RECOMMEND_NO = '否';
@@ -65,17 +65,17 @@ class Course extends Model
      * @param $value
      * @return string
      */
-    public function getStatusAttribute($value)
-    {
-        switch ($value) {
-            case '1':
-                $attr = self::STATUS_OPEN;
-                break;
-            case '2':
-                $attr = self::STATUS_CLOSE;
-                break;
-        }
-        return $attr;
-    }
+//    public function getStatusAttribute($value)
+//    {
+//        switch ($value) {
+//            case '1':
+//                $attr = self::STATUS_OPEN;
+//                break;
+//            case '2':
+//                $attr = self::STATUS_CLOSE;
+//                break;
+//        }
+//        return $attr;
+//    }
 
 }

@@ -55,7 +55,7 @@
 								@if(Auth::user()->isAdmin())
 								<li><a href="/admin/index" target="_blank">后台管理</a></li>
 								@endif
-								<li><a href="#">VIP会员</a></li>
+								<li><a href="{{route('vip')}}">VIP会员</a></li>
 								<li><a href="#">我的收藏</a></li>
 								<li><a href="#">观看历史</a></li>
 								<li role="separator" class="divider"></li>

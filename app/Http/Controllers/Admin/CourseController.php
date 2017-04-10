@@ -20,7 +20,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $datas = Course::orderBy('id', 'asc')->paginate(16);
+        $datas = Course::orderBy('id', 'desc')->paginate(16);
         return view('admin.course.index',compact('datas',$datas));
     }
 

@@ -172,11 +172,11 @@
                             </span>
                             <span class="glyphicon glyphicon-ok-sign"></span>
                             <span> {{$ware->minutes}}分钟</span>
-                            <span style="color:green;">
-                                @if($key==0)
-                                免费
-                                @endif
-                            </span>
+							@if($ware->is_charge==1)
+								<span style="color:red;">收费</span>
+							@elseif($ware->is_charge==2)
+							<span style="color:green;">免费</span>
+							@endif
                         </a>
                     @endforeach
 	    		</div>

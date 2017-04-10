@@ -16,6 +16,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'App\Model\Post' => 'App\Policies\PostPolicy',
+//        'App\Model\Courseware' => 'App\Policies\SeeVipVideoPolicy',
+        'App\Model\UserGoods' => 'App\Policies\SeeVipVideoPolicy',
     ];
 
     /**
@@ -29,6 +31,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies($gate);
 
         foreach ($this->getPermissoins() as $permission){
+
             $gate->define($permission->name,function(User $user) use ($permission){
 
                 return $user->hasRole($permission->roles);

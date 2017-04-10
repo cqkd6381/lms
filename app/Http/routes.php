@@ -42,6 +42,8 @@ Route::post('commentStore','AjaxController@commentStore')->name('ajax_comment');
 Route::get('career','IndexController@career')->name('career');
 Route::get('class/{id}','IndexController@classs')->name('class');
 
+//VIP商品页面
+Route::get('vip','IndexController@vip')->name('vip');
 
 
 /*后台*/
@@ -91,6 +93,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware'=>'admin'],
 	//ajax请求
 	Route::any('ajax_career_course','AjaxController@ajax_career_course')->name('ajax_career_course');
 	Route::any('ajax_change_course_status','AjaxController@ajax_change_course_status')->name('ajax_change_course_status');
+	Route::any('ajax_change_course_ware_charge','AjaxController@ajax_change_course_ware_charge')->name('ajax_change_course_ware_charge');
 
 	// Route::get('')->name();
 

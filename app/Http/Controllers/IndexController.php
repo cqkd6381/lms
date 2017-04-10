@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\CourseComment;
+use App\Model\UserGoods;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -14,6 +15,8 @@ use App\Model\CourseUser;
 use App\Model\Category;
 use App\Model\Courseware;
 use App\Model\User;
+use App\Model\Post;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 class IndexController extends Controller
 {
@@ -63,7 +66,7 @@ class IndexController extends Controller
     {
         $data = Course::where('id',$id)->first();
         $count = CourseUser::where('course_id',$id)->count();
-        $courseware = Courseware::where('course_id',$id)->select('title','minutes','id')->orderBy('display_order','asc')->get();
+        $courseware = Courseware::where('course_id',$id)->select('title','minutes','id','is_charge')->orderBy('display_order','asc')->get();
         $comments = CourseComment::where('course_id',$id)->orderBy('id','desc')->get()->map(function($comment){
             $comment->realname = $comment->user->username;
             return $comment;
@@ -118,19 +121,31 @@ class IndexController extends Controller
      */
     public function video($id)
     {
-        $qiniu = new QiniuController;
-        $url = $qiniu->getUrl();
+//        $qiniu = new QiniuController;
+//        $url = $qiniu->getUrl();
 //        dd($qiniu->getUrl());
-//        $post = Post::findOrFail(2);
-//        \Auth::loginUsingId(1);
+//        \Auth::loginUsingId(2);
 //        $user = User::where('id',1)->first();
 //        dd($user);
-//        //过滤权限
-////        $this->authorize('update',$post);
-//        $this->authorize('seeVipVideo',$user);
+        //权限规则1：（1）免费视频直接看（2）收费视频判断权限
 
-        $data = Courseware::where('id',$id)->select('video_path')->first();
-//        $file = Storage::disk('local')->get($data->video_path);
-        return view('home.video',['data'=>$data,'url'=>$url]);
+        if(!\Auth::check()){
+            return redirect('auth/login');
+        }else{
+            $data = Courseware::findOrFail($id);
+            if($data->is_charge=1){
+                $usergoods = UserGoods::find(1);
+                if(Gate::denies('seeVipVideo',$usergoods)){
+                    return redirect()->route('vip');
+                }
+            }
+        }
+        return view('home.video',['data'=>$data]);
     }
+
+    public function vip()
+    {
+        return 'Vip';
+    }
+
 }

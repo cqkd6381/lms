@@ -38,7 +38,11 @@
 					                  	<td>{{$data->display_order}}</td>
 					                  	<td>{{$data->video_path}}</td>
 					                  	<td>
-					                  		<button type="button" class="btn btn-block btn-success btn-xs">免 费</button>
+											@if ($data->is_charge==1)
+												<button type="button" dd="{{$data->id}}" class="btn btn-block btn-danger btn-xs charge">收 费</button>
+											@elseif ($data->is_charge==2)
+												<button type="button" dd="{{$data->id}}" class="btn btn-block btn-success btn-xs charge">免 费</button>
+											@endif
 					                  	</td>
 					                  	<td>1</td>
 					                  	<td>
@@ -61,4 +65,28 @@
 	        </div>
       	</div>
     </section>
+@endsection
+
+@section('script')
+	<script>
+        $(function(){
+            $('.charge').click(function(){
+                var btn = $(this);
+                var dd = btn.attr('dd');
+                $.ajax({
+                    type:"post",
+                    url:"{{route('ajax_change_course_ware_charge')}}",
+                    data:"id=" + dd,
+                    success:function(data){
+//                        console.log(dd);
+                        if(data.msg.msg==1){
+                            btn.text('收费').removeClass('btn-success').addClass('btn-danger');
+                        }else if(data.msg.msg==2){
+                            btn.text('免费').removeClass('btn-danger').addClass('btn-success');
+                        }
+                    }
+                });
+            });
+        });
+	</script>
 @endsection

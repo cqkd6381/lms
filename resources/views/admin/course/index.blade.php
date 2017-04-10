@@ -37,10 +37,10 @@
 					                  	<td>{{$data->created_at}}</td>
 					                  	<td>{{$data->published_time}}</td>
 					                  	<td>
-					                  		@if ($data->status=='开启')
-					                  		<button class="btn btn-block btn-success btn-xs status" dd="{{$data->id}}">{{$data->status}}</button>
+					                  		@if ($data->status=='1')
+					                  		<button class="btn btn-block btn-success btn-xs status" dd="{{$data->id}}">开启</button>
 					                  		@else
-					                  		<button class="btn btn-block btn-default btn-xs status" dd="{{$data->id}}">{{$data->status}}</button>
+					                  		<button class="btn btn-block btn-default btn-xs status" dd="{{$data->id}}">关闭</button>
 											@endif
 					                  	</td>
 					                  	<td>
@@ -68,7 +68,7 @@
 @endsection
 
 @section('script')
-	<script type="text/javascript">
+	<script>
 		$(function(){
 			$('.status').click(function(){
 				var btn = $(this);
@@ -76,12 +76,13 @@
 				$.ajax({
 					type:"post",
 					url:"{{route('ajax_change_course_status')}}",
-					data:"dd=" + dd,
+					data:"id=" + dd,
 					success:function(data){
-						if(data.msg.code==1){
-							btn.text(data.msg.status_text).removeClass(data.msg.removeclass).addClass(data.msg.addclass);
-						}else if(data.msg.code==0){
-							btn.text(data.msg.msg).removeClass('btn-default').removeClass('btn-success').addClass('btn-danger');
+//                        console.log(dd);
+						if(data.msg.msg==1){
+							btn.text('开启').removeClass('btn-default').addClass('btn-success');
+						}else if(data.msg.msg==2){
+                            btn.text('关闭').removeClass('btn-success').addClass('btn-default');
 						}
 					}
 				});

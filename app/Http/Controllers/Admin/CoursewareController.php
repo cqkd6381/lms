@@ -18,7 +18,7 @@ class CoursewareController extends Controller
     public function get_coursewarelist($course_id)
     {
 
-        $datas = Courseware::where('course_id','=',$course_id)->paginate(20);
+        $datas = Courseware::where('course_id','=',$course_id)->orderBy('display_order','asc')->paginate(20);
 
         return view('admin.courseware.index',['datas'=>$datas,'course_id'=>$course_id]);
     }

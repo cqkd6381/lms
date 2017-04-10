@@ -111,11 +111,20 @@ class User extends Model implements AuthenticatableContract,
 
     /**
      * 分析用户是否有看视频的权限
+     * 权限规则：1.不是注册会员则通过 2.是注册会员则满足下面两个条件（1）本人已购买过Vip会员（2）.会员在有效期内
      * @return bool
      */
-    public function isVipToVideo()
+    public function isVipToVideo($usergoods)
     {
-        return true;
+        if($this->type==2){
+            if($usergoods->user_id==$this->id && strtotime($usergoods->expire_time)<time()){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return true;
+        }
     }
 
     /**
