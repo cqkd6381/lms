@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use App\Events\UserRegistered;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -15,9 +16,6 @@ class User extends Model implements AuthenticatableContract,
                                     CanResetPasswordContract
 {
     use Authenticatable, Authorizable, CanResetPassword;
-
-//	const STATUS_OPEN = '开启';
-//    const STATUS_CLOSE = '关闭';
 
     /**
      * The database table used by the model.
@@ -58,22 +56,6 @@ class User extends Model implements AuthenticatableContract,
     	return $this->belongsToMany(Course::class,'teacher_id','id');
     }
 
-    /**
-     * @param $value
-     * @return string
-     */
-//    public function getActiveAttribute($value)
-//    {
-//        switch ($value) {
-//            case '1':
-//                $attr = self::STATUS_OPEN;
-//                break;
-//            case '2':
-//                $attr = self::STATUS_CLOSE;
-//                break;
-//        }
-//        return $attr;
-//    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -133,5 +115,19 @@ class User extends Model implements AuthenticatableContract,
     public function isAdmin()
     {
         return $this->hasRole('admin');
+    }
+
+    /**
+     * 注册账户
+     * @param array $data
+     * @return static
+     */
+    public static function register(array $data)
+    {
+        $user = static::create($data);
+
+        event(new UserRegistered($user));
+
+        return $user;
     }
 }

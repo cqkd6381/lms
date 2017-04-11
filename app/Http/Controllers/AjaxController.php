@@ -10,7 +10,11 @@ use App\Http\Controllers\Controller;
 
 class AjaxController extends Controller
 {
-
+    /**
+     * Ajax发送用户评论
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function commentStore(Request $request)
     {
         $res = CourseComment::create([
