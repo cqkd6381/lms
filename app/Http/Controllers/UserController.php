@@ -39,7 +39,7 @@ class UserController extends Controller
             'password'=>bcrypt($request->get('password')),
             'active'=>2,
             'type'=>2,
-            'code'=>bcrypt($request->get('username'))
+            'code'=>date('YmdHis').str_random(40)
         ];
 
         User::register($data);
