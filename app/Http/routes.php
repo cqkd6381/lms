@@ -3,6 +3,7 @@
 //Route::get('/',function(){
 //    return view('home.repository');
 //});
+//this is a Fork from wendaosi
 //七牛云存储
 Route::any('qiniu/index','QiniuController@index');
 Route::any('qiniu/upload','QiniuController@upload');
