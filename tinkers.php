@@ -1,8 +1,8 @@
 <?php
 
 /**
-*使用tinker创建测试数据
-*
+*使用tinker创建测试数据,php artisan tinker
+*this is a pull request
 */
 
 /**
