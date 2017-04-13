@@ -118,6 +118,14 @@ class User extends Model implements AuthenticatableContract,
     }
 
     /**
+     * @return bool
+     */
+    public function isRegister()
+    {
+        return ($this->type == 2) ? true:false;
+    }
+
+    /**
      * 注册账户
      * @param array $data
      * @return static

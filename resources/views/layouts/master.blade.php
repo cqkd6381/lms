@@ -55,7 +55,9 @@
 								@if(Auth::user()->isAdmin())
 								<li><a href="/admin/index" target="_blank">后台管理</a></li>
 								@endif
+								@if(Auth::user()->isRegister())
 								<li><a href="{{route('vip')}}">VIP会员</a></li>
+								@endif
 								<li><a href="#">我的收藏</a></li>
 								<li><a href="#">观看历史</a></li>
 								<li role="separator" class="divider"></li>
@@ -78,7 +80,7 @@
       	<div class="container">
 	        <div id="navbar">
 	          	<ul class="nav navbar-nav">
-		            <li><a href="#">Copyright &copy; 2011-2017 安徽百得思维信息科技有限公司 All Rights Reserved 版权所有 皖ICP备16015303号-1</a></li>
+		            <li><a href="#">Copyright &copy; 2013-2017 安徽百得思维信息科技有限公司 All Rights Reserved 版权所有 皖ICP备16015303号-1</a></li>
 	          	</ul>
 	        </div>
       	</div>

@@ -1,5 +1,8 @@
 <?php
 
+//Route::get('/',function(){
+//    return view('home.repository');
+//});
 //七牛云存储
 Route::any('qiniu/index','QiniuController@index');
 Route::any('qiniu/upload','QiniuController@upload');
@@ -31,8 +34,12 @@ Route::post('commentStore','AjaxController@commentStore')->name('ajax_comment');
 Route::get('career','IndexController@career')->name('career');
 Route::get('class/{id}','IndexController@classs')->name('class');
 
-//VIP商品页面
-Route::get('vip','IndexController@vip')->name('vip');
+Route::group(['middleware'=>'auth'],function(){
+    //VIP商品页面
+    Route::get('vip','IndexController@vip')->name('vip');
+
+});
+
 
 
 /*后台*/

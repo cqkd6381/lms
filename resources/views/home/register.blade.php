@@ -21,6 +21,11 @@
             {!! Form::password('password',['class'=>'form-control']) !!}
         </div>
 
+        <div class="form-group">
+            {!! Form::label('password_confirmation','确认密码:') !!}
+            {!! Form::password('password_confirmation',['class'=>'form-control']) !!}
+        </div>
+
         {!! Form::submit('注册',['class'=>'btn btn-primary form-control']) !!}
         {!! Form::close() !!}
     </div>

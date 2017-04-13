@@ -90,7 +90,7 @@ class IndexController extends Controller
     public function career()
     {
         $datas = Career::where('status','1')->where('pid',0)->orderBy('id','desc')->get();
-    	return view('home.career',['datas'=>$datas]);
+    	return view('home.career1',['datas'=>$datas]);
     }
 
     /**
@@ -111,7 +111,7 @@ class IndexController extends Controller
         // dd($dd);
         
         // var_dump($courseWithCareer);
-    	return view('home.class',['datas'=>$datas,'career_name'=>$career_name]);
+    	return view('home.class1',['datas'=>$datas,'career_name'=>$career_name]);
     }
 
     /**
@@ -145,7 +145,14 @@ class IndexController extends Controller
 
     public function vip()
     {
-        return 'Vip';
+        return view('home.pay');
     }
+
+    public function repository()
+    {
+        return view('home.repository');
+    }
+
+
 
 }
