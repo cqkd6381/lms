@@ -421,9 +421,9 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{route('admin.career.index')}}"><i class="fa fa-circle-o"></i> 商品列表</a></li>
-                        <li><a href="{{route('admin.career.index')}}"><i class="fa fa-circle-o"></i> 添加商品</a></li>
-                        <li><a href="{{route('admin.career.index')}}"><i class="fa fa-circle-o"></i> 订单列表</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 商品列表</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 添加商品</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 订单列表</a></li>
                     </ul>
                 </li>
 
@@ -441,25 +441,6 @@
                         <li class="active"><a href="{{route('admin.course.create')}}"><i class="fa fa-circle-o"></i> 系统设置</a></li>
                     </ul>
                 </li>
-
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                        <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-                <li class="header">LABELS</li>
-                <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
             </ul>
         </section>
         <!-- /.sidebar -->

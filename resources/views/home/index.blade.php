@@ -13,25 +13,25 @@
     		float:left;
     		margin:5px;
     		/*padding:5px;*/
-    		border-radius:5px;
+    		border-radius:0px;
     	}
-    	.box .box-head{
-    		height:30px;width:290px;
-    		background-color: #999;
-    		border-top-left-radius:5px;
-    		border-top-right-radius:5px;
-    	}
-    	.box .box-head span{
-    		text-align: center;
-    		font-size: 14px;
-    		line-height: 30px;
-    		padding:5px;
-    		color:#fff;
-    	}
+    	/*.box .box-head{*/
+    		/*height:30px;width:290px;*/
+    		/*background-color: rgba(34, 140, 0, 0.19);*/
+    		/*border-top-left-radius:5px;*/
+    		/*border-top-right-radius:5px;*/
+    	/*}*/
+    	/*.box .box-head span{*/
+    		/*text-align: center;*/
+    		/*font-size: 14px;*/
+    		/*line-height: 30px;*/
+    		/*padding:5px;*/
+    		/*color:#fff;*/
+    	/*}*/
     	.box .box-body{
-    		height:100px;width:290px;
+    		height:130px;width:290px;
     		background-color: #bbb;
-    		padding:5px 10px;
+    		/*padding:5px 10px;*/
     	}
     	.box .box-body span{
     		color:#fff;
@@ -49,9 +49,9 @@
     	}
     	.box .box-foot{
     		height:30px;width:290px;
-    		background-color: #bbb;
-    		border-bottom-left-radius:5px;
-    		border-bottom-right-radius:5px;
+    		background-color: seagreen;
+    		/*border-bottom-left-radius:5px;*/
+    		/*border-bottom-right-radius:5px;*/
     	}
     	.box .box-foot span{
     		text-align: center;
@@ -150,19 +150,21 @@
     		<a href="{{route('index',['type'=>3])}}">最热</a>
     		<a href=""><span class="glyphicon glyphicon-circle-arrow-right"></span></a>
     		<a href=""><span class="glyphicon glyphicon-circle-arrow-left"></span></a>
-    		<span>1/28</span>
+    		{{--<span>1/28</span>--}}
     	</div>
     	@foreach($datas as $data)
 			<a href="{{route('course',['id'=>$data->id])}}">
 				<div class="box">
-					<div class="box-head">
-						<span>{{$data->name}}</span>
-					</div>
+					{{--<div class="box-head">--}}
+						{{--<span>{{$data->name}}</span>--}}
+					{{--</div>--}}
 					<div class="box-body">
-						<span>{{$data->title}}</span>
-						<p>{{$data->introduction}}</p>
+						{{--<span>{{$data->title}}</span>--}}
+{{--						<p>{{$data->introduction}}</p>--}}
+						<img src="uploads/{{$data->imgpath}}" width="290px" height="130px" alt="">
 					</div>
 					<div class="box-foot">
+						<span>{{$data->name}}</span>
 						<span>{{$data->difficulty}}</span>
 						<span>{{$data->learning_nums}}人在学</span>
 						<span>{{$data->realname}}</span>

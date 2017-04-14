@@ -241,6 +241,12 @@ class CareerController extends Controller
         return view('admin.career.category-edit',['data'=>$data]);
     }
 
+    /**
+     * 路径-子分类-更新
+     * @param Requests\CareerCategoryRequest $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateCategory(Requests\CareerCategoryRequest $request, $id)
     {
         Career::where('id',$id)->update(['name'=>$request->name,'introduction'=>$request->introduction]);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\Career;
 use App\Model\Courseware;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,11 @@ use App\Model\CareerCourse;
 use App\Model\Course;
 class AjaxController extends Controller
 {
-    /*ajax添加课程到路径*/
+    /**
+     * ajax添加课程到路径
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function ajax_career_course(Request $request)
     {
         $model = new CareerCourse;
@@ -30,7 +35,11 @@ class AjaxController extends Controller
         return response()->json(array('msg'=> $msg), 200);
     }
 
-    /*ajax修改课程状态*/
+    /**
+     * ajax修改课程状态
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function ajax_change_course_status(Request $request)
     {
         $model = Course::find($request->id);
@@ -44,6 +53,28 @@ class AjaxController extends Controller
         return response()->json(['msg'=>$msg],200);
     }
 
+    /**
+     * ajax修改路径状态
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function ajax_change_career_status(Request $request)
+    {
+        $model = Career::find($request->id);
+        $model->status = ($model->status==1)?2:1;
+        $res = $model->save();
+        if($res){
+            $msg['msg'] = $model->status;
+
+        }
+        return response()->json(['msg'=>$msg],200);
+    }
+
+    /**
+     * ajax修改课件收费状态
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function ajax_change_course_ware_charge(Request $request)
     {
         $model = Courseware::find($request->id);
@@ -56,8 +87,6 @@ class AjaxController extends Controller
             $msg['msg'] = $model->is_charge;
         }
         return response()->json(['msg'=>$msg],200);
-
-
 
     }
 }

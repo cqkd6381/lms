@@ -48,12 +48,12 @@ class IndexController extends Controller
 
         $datas = Course::leftjoin('users as u','u.id','=','course.teacher_id')
         ->leftjoin('category as c','c.id','=','course.category_id')
-        ->select('u.realname','course.title','course.id','course.introduction','course.difficulty','course.learning_nums','c.name')
+        ->select('u.realname','course.title','course.imgpath','course.id','course.introduction','course.difficulty','course.learning_nums','c.name')
         ->orderBy($order,'desc')
         ->orderBy('id','desc')
         ->where('course.status',1)
         ->paginate(20);
-
+//        dd($datas);
     	return view('home.index',['datas'=>$datas]);
     }
 
@@ -64,7 +64,7 @@ class IndexController extends Controller
      */
     public function course($id)
     {
-        $data = Course::where('id',$id)->first();
+        $data = Course::where('course.id',$id)->leftjoin('users as u','u.id','=','course.teacher_id')->select('course.*','u.realname')->first();
         $count = CourseUser::where('course_id',$id)->count();
         $courseware = Courseware::where('course_id',$id)->select('title','minutes','id','is_charge')->orderBy('display_order','asc')->get();
         $comments = CourseComment::where('course_id',$id)->orderBy('id','desc')->get()->map(function($comment){
@@ -100,18 +100,20 @@ class IndexController extends Controller
      */
     public function classs($id)
     {
-        $datas = CareerCourse::leftjoin('course as c','c.id','=','career_course.course_id')
-        ->where('career_id','=',$id)->get();
-        $career_name = Career::where('id','=',$id)->value('name');
-        // var_dump($datas);
-        // $dd = Course::where('status',1)->get();
-        // foreach ($dd as $key => $value) {
-        //     $value['ddddddddddddd'] = $value->belongsToManyCareer()->get();
-        // }
-        // dd($dd);
-        
-        // var_dump($courseWithCareer);
-    	return view('home.class1',['datas'=>$datas,'career_name'=>$career_name]);
+        $career = Career::where('status',1)->findOrfail($id);
+        $nums = 0;
+        $datas = Career::where('pid',$id)->orderBy('id','asc')->get()->toArray();
+        foreach($datas as $key=>$value){
+            $class = CareerCourse::leftjoin('course as c','c.id','=','career_course.course_id')
+//                ->leftjoin('career as ca','ca.id','=','career_course.career_id')
+                ->leftjoin('users as u','u.id','=','c.teacher_id')
+                ->where('career_course.career_id','=',$value['id'])->select('u.realname','c.id','c.imgpath','c.learning_nums')
+                ->orderBy('c.display_order','desc')
+                ->get();
+            $nums += count($class);
+            $datas[$key]['classes'] = $class;
+        }
+    	return view('home.class1',['datas'=>$datas,'career'=>$career,'nums'=>$nums]);
     }
 
     /**
@@ -143,14 +145,35 @@ class IndexController extends Controller
         return view('home.video2',['data'=>$data]);
     }
 
+    /**
+     * 会员支付页面
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function vip()
     {
         return view('home.pay');
     }
 
+    /**
+     * 知识库
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function repository()
     {
         return view('home.repository');
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function search(Request $request)
+    {
+        $words = trim($request->get('words'));
+
+        $model = Course::where('introduction','like',"%$words%")->get();
+
+        return view('home.search',['model'=>$model]);
     }
 
 

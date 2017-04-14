@@ -6,13 +6,13 @@
 
 @section('style')
     <style type="text/css">
-        .class-top {
-            width: 100%;
-            height: 150px;
-            background-color: green;
-            margin-top: -20px;
-            margin-bottom: 20px;
-        }
+        /*.class-top {*/
+            /*width: 100%;*/
+            /*height: 150px;*/
+            /*background-color: green;*/
+            /*margin-top: -20px;*/
+            /*margin-bottom: 20px;*/
+        /*}*/
 
         .class-left {
             width: 20%;
@@ -65,12 +65,13 @@
 
         .career-child{
             margin: 20px 0;
-            border-bottom: 1px solid gainsboro;
+            /*border-bottom: 1px solid gainsboro;*/
         }
         .carrer-title{
             font-weight: 600;
             font-size: 16px;
             color: green;
+            cursor: pointer;
             /*padding:5px 0;*/
         }
         .carrer-intro{
@@ -87,7 +88,21 @@
             width: 300px;
 
             padding: 0 10px 0 0;
-            background-color: #001f3f;
+            /*background-color: #001f3f;*/
+        }
+        .lession-foot{
+            height:30px;width:290px;
+            background-color: rgba(46,139,87,0.6);
+            /*background: 0.5;*/
+            /*border-bottom-left-radius:5px;*/
+            /*border-bottom-right-radius:5px;*/
+        }
+        .lession-foot span{
+            text-align: center;
+            font-size: 12px;
+            line-height: 30px;
+            padding:5px;
+            color:#fff;
         }
     </style>
 @endsection
@@ -101,59 +116,37 @@
             <div class="class-join">参加该路径</div>
             <div class="class-left-title">路径介绍</div>
             <div class="class-left-con">
-                <span style="font-size: 13px;color: gray;">Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的Laravel大量使用了PHP的面向对象编程的知识和新特性，我们可以通过这一系列的视频来理解PHP的OOP，从而达到更好地理解和使用Laravel的目的</span>
+                <span style="font-size: 13px;color: gray;">{{$career->introduction}}</span>
             </div>
         </div>
         <div class="class-right">
             <div class="class-right-top">
-                <div class="class-title">带你走进大数据</div>
+                <div class="class-title">{{$career->name}}</div>
                 <div class="class-info">
-                    <span>5门课程</span>
-                    <span>3640人在学</span>
+                    <span>{{$nums}}门课程</span>
+                    <span>{{$career->learning_nums}}人在学</span>
                 </div>
             </div>
             <div class="class-right-body">
+                @foreach($datas as $data)
                 <div class="career-child">
-                    <div class="carrer-title">初探YII框架</div>
-                    <div class="carrer-intro">我们从YII的安装开始，学习YII的基本使用，带你初探YII的全貌。</div>
-                    <div class="lession-list row hidden">
-                        <div class="lession-info col-md-3">
-                            <img src="{{asset('vendor/common/img/1.jpg')}}" alt="" width="100%">
-                            <div>
-                                <span></span>
-                            </div>
-                        </div>
-                        <div class="lession-info col-md-3">
-                            <img src="{{asset('vendor/common/img/1.jpg')}}" alt="" width="100%">
-                        </div>
-                        <div class="lession-info col-md-3">
-                            <img src="{{asset('vendor/common/img/1.jpg')}}" alt="" width="100%">
-                        </div>
+                    <div class="carrer-title">{{$data['name']}}</div>
+                    <div class="carrer-intro">{{$data['introduction']}}</div>
+                    <div class="lession-list row show">
+                        @foreach($data['classes'] as $val)
+                            <a href="{{route('course',['id'=>$val->id])}}">
+                                <div class="lession-info col-md-3">
+                                    <img src="{{asset('uploads/'.$val->imgpath)}}" width="290px" height="130px" alt="">
+                                    <div class="lession-foot">
+                                        <span>{{$val->learning_nums}}人在学</span>
+                                        <span>{{$val->realname}}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
-
-                <div class="career-child">
-                    <div class="carrer-title">初探YII框架</div>
-                    <div class="carrer-intro">我们从YII的安装开始，学习YII的基本使用，带你初探YII的全貌。</div>
-                    <div class="lession-list row hidden">
-                        <div class="lession-info col-md-3">
-                            <img src="{{asset('vendor/common/img/1.jpg')}}" alt="" width="100%">
-
-                        </div>
-                        <div class="lession-info col-md-3">
-                            <img src="{{asset('vendor/common/img/1.jpg')}}" alt="" width="100%">
-
-                        </div>
-
-                        <div class="lession-info col-md-3">
-                            <img src="{{asset('vendor/common/img/1.jpg')}}" alt="" width="100%">
-                        </div>
-                        <div class="lession-info col-md-3">
-                            <img src="{{asset('vendor/common/img/1.jpg')}}" alt="" width="100%">
-                        </div>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
         </div>
     </div>

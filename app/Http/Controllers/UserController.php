@@ -16,6 +16,9 @@ class UserController extends Controller
      */
     public function getRegister()
     {
+        if(\Auth::user()){
+            return redirect()->back();
+        }
         return view('home.register');
     }
 

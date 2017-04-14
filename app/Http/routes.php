@@ -23,20 +23,28 @@ Route::get('/code/{username}/{code}','UserController@code');
 
 /*前台*/
 //课程
-Route::get('/{type?}','IndexController@index')->where('type','[1-3]')->name('index');
-Route::get('course/{id}','IndexController@course')->name('course');
+Route::get('/{type?}','IndexController@index')->where('type','[1-3]')->name('index');//首页
+Route::get('course/{id}','IndexController@course')->name('course');//课程详情
 Route::get('video/{id}','IndexController@video')->name('video');
 
-Route::get('scene','IndexController@scene')->name('scene');
+Route::get('scene','IndexController@scene')->name('scene');//线上课程
 Route::post('commentStore','AjaxController@commentStore')->name('ajax_comment');
 
 //职业路径
-Route::get('career','IndexController@career')->name('career');
-Route::get('class/{id}','IndexController@classs')->name('class');
+Route::get('career','IndexController@career')->name('career');//路径列表
+Route::get('class/{id}','IndexController@classs')->name('class');//路径详情
 
+//搜索
+Route::get('search','IndexController@search')->name('search');//搜索
+
+
+//支付
 Route::group(['middleware'=>'auth'],function(){
     //VIP商品页面
     Route::get('vip','IndexController@vip')->name('vip');
+    Route::get('profile','IndexController@profile')->name('profile');//个人中心
+    Route::get('collect','IndexController@collect')->name('collect');//收藏
+    Route::get('saw','IndexController@saw')->name('saw');//观看历史
 
 });
 
@@ -89,6 +97,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware'=>'admin'],
 	//ajax请求
 	Route::any('ajax_career_course','AjaxController@ajax_career_course')->name('ajax_career_course');
 	Route::any('ajax_change_course_status','AjaxController@ajax_change_course_status')->name('ajax_change_course_status');
+	Route::post('ajax_change_career_status','AjaxController@ajax_change_career_status')->name('ajax_change_career_status');
 	Route::any('ajax_change_course_ware_charge','AjaxController@ajax_change_course_ware_charge')->name('ajax_change_course_ware_charge');
 
 	// Route::get('')->name();

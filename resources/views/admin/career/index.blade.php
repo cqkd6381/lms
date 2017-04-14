@@ -32,7 +32,13 @@
 					                  	<td>{{$data->learning_nums}}</td>
 					                  	<td>{{$data->created_at}}</td>
 					                  	<td>{{$data->created_user}}</td>
-					                  	<td>{{$data->status}}</td>
+										<td>
+											@if ($data->status=='1')
+												<button class="btn btn-block btn-success btn-xs status" dd="{{$data->id}}">开启</button>
+											@else
+												<button class="btn btn-block btn-default btn-xs status" dd="{{$data->id}}">关闭</button>
+											@endif
+										</td>
 					                  	<td>
 					                  		<a href="{{route('admin.career.show',['id'=>$data->id])}}">详情</a>|
 					                  		<a href="{{route('admin.career.edit',['id'=>$data->id])}}">编辑</a>|
@@ -55,4 +61,28 @@
 	        </div>
       	</div>
     </section>
+@endsection
+
+@section('script')
+	<script>
+        $(function(){
+            $('.status').click(function(){
+                var btn = $(this);
+                var dd = btn.attr('dd');
+                $.ajax({
+                    type:"post",
+                    url:"{{route('ajax_change_career_status')}}",
+                    data:"id=" + dd,
+                    success:function(data){
+//                        console.log(dd);
+                        if(data.msg.msg==1){
+                            btn.text('开启').removeClass('btn-default').addClass('btn-success');
+                        }else if(data.msg.msg==2){
+                            btn.text('关闭').removeClass('btn-success').addClass('btn-default');
+                        }
+                    }
+                });
+            });
+        });
+	</script>
 @endsection

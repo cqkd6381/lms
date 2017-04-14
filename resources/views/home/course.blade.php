@@ -8,7 +8,7 @@
     <style type="text/css">
     	.course-head{
     		height: 160px;
-    		background-color: #ccc;
+    		/*background-color: #ccc;*/
     		padding:10px; 
     	}
     	.course-head h1{
@@ -58,14 +58,15 @@
     	}
     	.course-body-left{
     		width:840px;
-    		background-color: #ccc;
+    		background-color: #fff;
     		float:left;
     	}
     	.course-body-right{
     		width:340px;
     		height:500px;
-    		background-color: #ccc;
+    		/*background-color: #ccc;*/
     		float:right;
+			padding:10px;
     	}
     	.course-body-one,.course-body-two{
     		padding:20px 10px;
@@ -86,7 +87,7 @@
     		display: block;
     		height:40px;
     		width:820px;
-    		background-color: #fff;
+    		background-color: #eee;
     		color:#000;
     		/*margin-top: 10px;*/
     		margin:10px auto;
@@ -130,32 +131,52 @@
             padding: 10px;
             border-bottom: 1px solid #aaa;
         }
+		.course-top{
+			background-color: seagreen;
+			margin-top:-20px;
+		}
+		.course-attr span,.course-attr i{
+			color: #fff;
+		}
+		.right-top{
+			margin-bottom: 10px;
+		}
+		.right-top span{
+			font-size: 16px;
+			font-weight: 600;
+			color:#000000;
+		}
     </style>
 @endsection
 
 @section('content')
+	<div class="course-top">
+		<div class="container">
+			<div class="course-head">
+				<h1>{{$data->title}}</h1>
+				<div class="course-head-content">
+					<div class="course-attr" style="background-color: #f00;border-radius: 5px;width:160px;">
+						<a href="javascript:void(0);" class="learn-start">开始学习</a>
+						<a href="javascript:void(0);" class="glyphicon glyphicon-heart learn-collect"></a>
+					</div>
+					<div class="course-attr">
+						<span>学习人数</span>
+						<i>{{$count}}</i>
+					</div>
+					<div class="course-attr">
+						<span>难度级别</span>
+						<i>{{$data->difficulty}}</i>
+					</div>
+					<div class="course-attr">
+						<span>课程时长</span>
+						<i>{{($data->minutes)}}分钟</i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
     <div class="container">
-    	<div class="course-head">
-    		<h1>{{$data->title}}</h1>
-    		<div class="course-head-content">
-    			<div class="course-attr" style="background-color: #f00;border-radius: 5px;width:160px;">
-    				<a href="javascript:void(0);" class="learn-start">开始学习</a>
-    				<a href="javascript:void(0);" class="glyphicon glyphicon-heart learn-collect"></a>
-    			</div>
-    			<div class="course-attr">
-    				<span>学习人数</span>
-    				<i>{{$count}}</i>
-    			</div>
-    			<div class="course-attr">
-    				<span>难度级别</span>
-    				<i>{{$data->difficulty}}</i>
-    			</div>
-    			<div class="course-attr">
-    				<span>课程时长</span>
-    				<i>{{($data->minutes)}}分钟</i>
-    			</div>
-    		</div>
-    	</div>
+
     	<div class="course-body">
     		<div class="course-body-left">
     			<div class="course-body-one">
@@ -166,11 +187,11 @@
 	    		</div>
 	    		<div class="course-body-two">
 	    			@foreach($courseware as $key=>$ware)
-                        <a href="{{route('video',['id'=>$ware->id])}}" target="_blank">
+                        <a href="{{route('video',['id'=>$ware->id])}}" target="_blank" >
                             <span>
                                 第{{$key+1}}课 {{$ware->title}}
                             </span>
-                            <span class="glyphicon glyphicon-ok-sign"></span>
+                            <span class="glyphicon glyphicon-play-circle"></span>
                             <span> {{$ware->minutes}}分钟</span>
 							@if($ware->is_charge==1)
 								<span style="color:red;">收费</span>
@@ -204,11 +225,28 @@
 	    		</div>
     		</div>
     		<div class="course-body-right">
-    			
+				<div class="right-top">
+					{{--<span class="label label-default">讲师提示</span>--}}
+					<button class="btn btn-default">讲师提示</button>
+					<kbd>讲师：{{$data->realname}}</kbd>
+				</div>
+				<div class="well">
+					<span>小伙伴们，欢迎学习本课程，学习过程中如有任务问题，请在课程下方留言，也欢迎给予评论与建议！</span>
+				</div>
+				<div class="well">
+					<span>老师告诉你能学到什么？<br>
+1、掌握条件判断和流程控制的基本语句<br>
+2、通过大量案例的学习，掌握shell编程思想<br>
+3、体会shell编程在Linux运维中的重要作用</span>
+				</div>
+				<div class="alert alert-success alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<strong>Well done!</strong> Believe in yourself, you can finish this course .
+				</div>
     		</div>
     	</div>
     	<div class="course-foot">
-    		
+
     	</div>
     </div>
 @endsection

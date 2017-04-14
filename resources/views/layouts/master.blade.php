@@ -26,19 +26,19 @@
 	        <!-- Note that the .navbar-collapse and .collapse classes have been removed from the #navbar -->
 	        <div id="navbar">
 	          	<ul class="nav navbar-nav">
-		            <li class="dropdown">
-		             	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">课程 <span class="caret"></span></a>
-		              	<ul class="dropdown-menu">
-		                	<li><a href="{{route('index')}}">线上课程</a></li>
-		                	<li><a href="{{route('scene')}}">线下课程</a></li>
-		              	</ul>
-		            </li>
-		            <li><a href="{{route('career')}}">职业路径</a></li>
-		            <li><a href="#contact">知识库</a></li>
+		            {{--<li class="dropdown">--}}
+		             	{{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">课程 <span class="caret"></span></a>--}}
+		              	{{--<ul class="dropdown-menu">--}}
+		                	{{--<li><a href="{{route('scene')}}">线下课程</a></li>--}}
+						{{--</ul>--}}
+					{{--</li>--}}
+					<li><a href="{{route('index')}}">课程</a></li>
+					<li><a href="{{route('career')}}">职业路径</a></li>
+		            {{--<li><a href="#contact">知识库</a></li>--}}
 	          	</ul>
-	          	<form class="navbar-form navbar-left">
+	          	<form class="navbar-form navbar-left" action="/search">
 		            <div class="form-group">
-		              	<input type="text" class="form-control" placeholder="课程">
+		              	<input type="text" class="form-control" name="words" placeholder="课程">
 		            </div>
 	            	<button type="submit" class="btn btn-default">搜索</button>
 	          	</form>
@@ -46,7 +46,6 @@
 					@if(!Auth::check())
 						<li><a href="/auth/login">登陆</a></li>
 						<li><a href="/register">注册</a></li>
-
 					@else
 						<li><a href="#">{{Auth::user()->username}}</a></li>
 						<li class="dropdown">
