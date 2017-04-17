@@ -120,7 +120,7 @@ class CourseController extends Controller
                 file_get_contents($request->file('imgpath')->getRealPath())
             );
             if($res){
-//                Storage::disk('uploads')->delete($course->imgpath);
+                Storage::disk('uploads')->delete($course->imgpath);
             }
             $course->imgpath = $filename;
         }

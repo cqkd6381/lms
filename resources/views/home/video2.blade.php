@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{asset('vendor/common/bootstrap-3.3.7/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-    <title>Document</title>
+    <title>{{$data->title}}</title>
     <style type="text/css">
         @charset "utf-8";
         html,body{
@@ -263,16 +263,16 @@
 <div class="col-md-12">
     <div id="willesPlay">
         <div class="playContent" id="moveDiv">
-            <div class="turnoff">
-                <ul>
-                    <li style="list-style: none;">
-                        <a href="javascript:;" title="目录" id="big-link" class="glyphicon glyphicon-heart-empty"></a>
-                    </li>
-                </ul>
-            </div>
+            {{--<div class="turnoff">--}}
+                {{--<ul>--}}
+                    {{--<li style="list-style: none;">--}}
+                        {{--<a href="javascript:;" title="目录" id="big-link" class="glyphicon glyphicon-heart-empty"></a>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
+            {{--</div>--}}
 
             <video width="100%" height="100%" id="playVideo">
-                <source src="http://class.ibestservice.com/uploads/videos/2017-04/2017040517083731.mp4" type="video/mp4"></source>
+                <source src="{{asset('uploads/'.$data->video_path)}}" type="video/mp4"></source>
             </video>
             <div class="playTip glyphicon glyphicon-play"></div>
         </div>

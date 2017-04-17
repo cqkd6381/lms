@@ -58,7 +58,7 @@ return [
     'not_in'               => 'The selected :attribute is invalid.',
     'numeric'              => 'The :attribute must be a number.',
     'regex'                => 'The :attribute format is invalid.',
-    'required'             => ':attribute 是必填项',
+    'required'             => 'The :attribute field is required.',
     'required_if'          => 'The :attribute field is required when :other is :value.',
     'required_unless'      => 'The :attribute field is required unless :other is in :values.',
     'required_with'        => 'The :attribute field is required when :values is present.',
@@ -89,8 +89,18 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'username' => [
+            'required' => '用户名不能为空',
+            'unique' => '此用户名已经存在',
+        ],
+        'email' => [
+            'email' => '请填入正确的邮箱地址',
+            'unique' => '此邮箱已经存在',
+        ],
+        'password' => [
+            'required' => '密码不能为空',
+            'min' => '密码不能少于:min位',
+            'confirmed' => '确认密码不能为空',
         ],
     ],
 

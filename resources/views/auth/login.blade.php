@@ -22,7 +22,7 @@
             {{--{!! Form::checkbox('remmber','记住我',['class'=>'form-control']) !!}--}}
         {{--</div>--}}
 
-        {!! Form::submit('登录',['class'=>'btn btn-primary form-control']) !!}
+        {!! Form::submit('登录',['class'=>'btn btn-success form-control']) !!}
         {!! Form::close() !!}
     </div>
 @stop

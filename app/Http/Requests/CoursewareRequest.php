@@ -24,7 +24,7 @@ class CoursewareRequest extends Request
     public function rules()
     {
         $rules = [
-            'title'=>'required|min:3|max:20',
+            'title'=>'required|min:3|max:40',
             'minutes'=>'required|integer',
             'display_order'=>'required',
             'description'=>'required',
@@ -33,7 +33,7 @@ class CoursewareRequest extends Request
         if($this->isMethod('POST')){
             $id = $this->route('course_ware');
             $rules['video'] = 'required';
-            $rules['title']='required|min:3|max:20|unique:course_ware,title,'.$id;
+            $rules['title']='required|min:3|max:40|unique:course_ware,title,'.$id;
         }
         return $rules;
     }

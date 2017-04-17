@@ -13,7 +13,7 @@
 
         <div class="form-group">
             {!! Form::label('email','邮箱:') !!}
-            {!! Form::email('email',null,['class'=>'form-control']) !!}
+            {!! Form::text('email',null,['class'=>'form-control']) !!}
         </div>
 
         <div class="form-group">
@@ -26,7 +26,7 @@
             {!! Form::password('password_confirmation',['class'=>'form-control']) !!}
         </div>
 
-        {!! Form::submit('注册',['class'=>'btn btn-primary form-control']) !!}
+        {!! Form::submit('注册',['class'=>'btn btn-success form-control']) !!}
         {!! Form::close() !!}
     </div>
 @stop

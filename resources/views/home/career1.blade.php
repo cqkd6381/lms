@@ -67,7 +67,7 @@
 							</div>
 						</div>
 						<div class="box-out hidden">
-							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;简介：快速开发的最佳实践之一，丰富的扩展资源，快速开发的思想，越来越受到企业的青睐，应用也愈加广泛。本课程以博客系统为例</p>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$data->introduction}}</p>
 						</div>
 					</div>
         		</a>

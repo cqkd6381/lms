@@ -269,7 +269,8 @@ video::-webkit-media-controls-enclosure {
 			</div>
 
 			<video width="100%" height="100%" id="playVideo">
-				<source src="http://class.ibestservice.com/uploads/videos/2017-04/2017040517083731.mp4" type="video/mp4"></source>
+				<source src="{{asset('uploads/'.$data->video_path)}}" type="video/mp4"></source>
+				{{--<source src="http://class.ibestservice.com/uploads/videos/2017-04/2017040517083731.mp4" type="video/mp4"></source>--}}
 			</video>
 			<div class="playTip glyphicon glyphicon-play"></div>
 		</div>

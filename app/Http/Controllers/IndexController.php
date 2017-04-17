@@ -53,7 +53,6 @@ class IndexController extends Controller
         ->orderBy('id','desc')
         ->where('course.status',1)
         ->paginate(20);
-//        dd($datas);
     	return view('home.index',['datas'=>$datas]);
     }
 
@@ -71,6 +70,8 @@ class IndexController extends Controller
             $comment->realname = $comment->user->username;
             return $comment;
         });
+//        var_dump($courseware[0]->id);
+//        dd($courseware);
     	return view('home.course',['data'=>$data,'count'=>$count,'courseware'=>$courseware,'comments'=>$comments]);
     }
 
@@ -108,7 +109,7 @@ class IndexController extends Controller
 //                ->leftjoin('career as ca','ca.id','=','career_course.career_id')
                 ->leftjoin('users as u','u.id','=','c.teacher_id')
                 ->where('career_course.career_id','=',$value['id'])->select('u.realname','c.id','c.imgpath','c.learning_nums')
-                ->orderBy('c.display_order','desc')
+                ->orderBy('career_course.id','asc')
                 ->get();
             $nums += count($class);
             $datas[$key]['classes'] = $class;

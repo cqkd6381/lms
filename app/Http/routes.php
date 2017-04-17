@@ -100,7 +100,6 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin','middleware'=>'admin'],
 	Route::post('ajax_change_career_status','AjaxController@ajax_change_career_status')->name('ajax_change_career_status');
 	Route::any('ajax_change_course_ware_charge','AjaxController@ajax_change_course_ware_charge')->name('ajax_change_course_ware_charge');
 
-	// Route::get('')->name();
 
 });
 

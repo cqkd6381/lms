@@ -8,29 +8,27 @@
     <style type="text/css">
     	.box{
     		width:290px;
-    		height:160px;
+    		height:190px;
     		background-color: gray;
     		float:left;
     		margin:5px;
     		/*padding:5px;*/
     		border-radius:0px;
     	}
-    	/*.box .box-head{*/
-    		/*height:30px;width:290px;*/
-    		/*background-color: rgba(34, 140, 0, 0.19);*/
-    		/*border-top-left-radius:5px;*/
-    		/*border-top-right-radius:5px;*/
-    	/*}*/
-    	/*.box .box-head span{*/
-    		/*text-align: center;*/
-    		/*font-size: 14px;*/
-    		/*line-height: 30px;*/
-    		/*padding:5px;*/
-    		/*color:#fff;*/
-    	/*}*/
+    	.box .box-head{
+    		height:30px;width:290px;
+    		background-color: seagreen;
+    	}
+    	.box .box-head span{
+    		text-align: center;
+    		font-size: 14px;
+    		line-height: 30px;
+    		padding:5px;
+    		color:#fff;
+    	}
     	.box .box-body{
     		height:130px;width:290px;
-    		background-color: #bbb;
+    		/*background-color: #bbb;*/
     		/*padding:5px 10px;*/
     	}
     	.box .box-body span{
@@ -155,9 +153,9 @@
     	@foreach($datas as $data)
 			<a href="{{route('course',['id'=>$data->id])}}">
 				<div class="box">
-					{{--<div class="box-head">--}}
-						{{--<span>{{$data->name}}</span>--}}
-					{{--</div>--}}
+					<div class="box-head">
+						<span>{{$data->title}}</span>
+					</div>
 					<div class="box-body">
 						{{--<span>{{$data->title}}</span>--}}
 {{--						<p>{{$data->introduction}}</p>--}}

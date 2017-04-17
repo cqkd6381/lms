@@ -43,12 +43,12 @@
     	}
     	.course-attr span{
     		display: block;
-    		color:#000;
+    		color:#fff;
 
     	}
     	.course-attr i{
     		display: block;
-    		color:#000;
+    		color:#fff;
     		font-size: 16px;
     		font-weight: 700;
     	}
@@ -135,9 +135,6 @@
 			background-color: seagreen;
 			margin-top:-20px;
 		}
-		.course-attr span,.course-attr i{
-			color: #fff;
-		}
 		.right-top{
 			margin-bottom: 10px;
 		}
@@ -145,6 +142,9 @@
 			font-size: 16px;
 			font-weight: 600;
 			color:#000000;
+		}
+		.learn-collect{
+			text-underline-style: none;
 		}
     </style>
 @endsection
@@ -157,7 +157,7 @@
 				<div class="course-head-content">
 					<div class="course-attr" style="background-color: #f00;border-radius: 5px;width:160px;">
 						<a href="javascript:void(0);" class="learn-start">开始学习</a>
-						<a href="javascript:void(0);" class="glyphicon glyphicon-heart learn-collect"></a>
+						{{--<a href="javascript:void(0);" class="glyphicon glyphicon-heart learn-collect"></a>--}}
 					</div>
 					<div class="course-attr">
 						<span>学习人数</span>
@@ -186,6 +186,7 @@
 	    			<span id="comment">评论</span>
 	    		</div>
 	    		<div class="course-body-two">
+					{{--{{$courseware[0]->id}}--}}
 	    			@foreach($courseware as $key=>$ware)
                         <a href="{{route('video',['id'=>$ware->id])}}" target="_blank" >
                             <span>

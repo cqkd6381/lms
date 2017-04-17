@@ -25,16 +25,17 @@
 	        </div>
 	        <!-- Note that the .navbar-collapse and .collapse classes have been removed from the #navbar -->
 	        <div id="navbar">
-	          	<ul class="nav navbar-nav">
-		            {{--<li class="dropdown">--}}
-		             	{{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">课程 <span class="caret"></span></a>--}}
-		              	{{--<ul class="dropdown-menu">--}}
-		                	{{--<li><a href="{{route('scene')}}">线下课程</a></li>--}}
-						{{--</ul>--}}
-					{{--</li>--}}
-					<li><a href="{{route('index')}}">课程</a></li>
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+		             	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">课程 <span class="caret"></span></a>
+		              	<ul class="dropdown-menu">
+							<li><a href="{{route('index')}}">线上课程</a></li>
+		                	<li><a href="{{route('scene')}}">线下课程</a></li>
+						</ul>
+					</li>
+
 					<li><a href="{{route('career')}}">职业路径</a></li>
-		            {{--<li><a href="#contact">知识库</a></li>--}}
+		            <li><a href="#contact">知识库</a></li>
 	          	</ul>
 	          	<form class="navbar-form navbar-left" action="/search">
 		            <div class="form-group">
@@ -55,13 +56,13 @@
 								<li><a href="/admin/index" target="_blank">后台管理</a></li>
 								@endif
 								@if(Auth::user()->isRegister())
-								<li><a href="{{route('vip')}}">VIP会员</a></li>
+								{{--<li><a href="{{route('vip')}}">VIP会员</a></li>--}}
 								@endif
-								<li><a href="#">我的收藏</a></li>
-								<li><a href="#">观看历史</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">个人资料</a></li>
-								<li role="separator" class="divider"></li>
+								{{--<li><a href="#">我的收藏</a></li>--}}
+								{{--<li><a href="#">观看历史</a></li>--}}
+								{{--<li role="separator" class="divider"></li>--}}
+								{{--<li><a href="#">个人资料</a></li>--}}
+								{{--<li role="separator" class="divider"></li>--}}
 								<li><a href="/auth/logout">退出</a></li>
 							</ul>
 						</li>

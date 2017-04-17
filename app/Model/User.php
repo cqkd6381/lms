@@ -126,14 +126,15 @@ class User extends Model implements AuthenticatableContract,
     }
 
     /**
-     * 注册账户
+     * 注册账户并添加用户角色
      * @param array $data
      * @return static
      */
     public static function register(array $data)
     {
         $user = static::create($data);
-
+        $mem = Role::find(2);
+        $user->roles()->save($mem);
         event(new UserRegistered($user));
 
         return $user;
